@@ -3,6 +3,8 @@
 
 #### This is the client side of a project aimed at designing a website for a restuarant called Daavi Special. This is Done as a mandatory part of the Alx Specialization's Port    folio project.
 ## Project Structure
+
+```
 DaaviSpecial-Frontend(Repo)
 daavi-special/
 ├── public/
@@ -29,6 +31,8 @@ daavi-special/
 │   ├── App.js
 │   ├── index.js
 │   └── ...
+
+```
 
 
 ## TECHNOLOGIES USED
