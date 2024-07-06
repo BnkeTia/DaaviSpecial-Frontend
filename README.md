@@ -6,7 +6,7 @@
 ## TECHNOLOGIES USED
 
 #### * Frontend Development: `HTML`, `CSS`, `JavaScript`, `React.js`
-![HTML](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQj9_GLRM3yt8ZEApEK0U_Trof8dR5mMDOjVA&s)
+![HTML](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQj9_GLRM3yt8ZEApEK0U_Trof8dR5mMDOjVA&s) ![React.js](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSY5zQQfgYdauP902KBIcvqGVfUGvUT4gyCJw&s)
 
 
 #### * Backend Development: `Python`, `Django`
