@@ -12,6 +12,9 @@ daavi-special/
 │   ├── assets/
 │   │   ├── images/
 │   │   └── styles/
+|   |   |   |--index.css
+|   |   |   |--Footer.css
+|   |   |   |--Header.css
 │   ├── components/
 │   │   ├── Header.js
 │   │   ├── Footer.js

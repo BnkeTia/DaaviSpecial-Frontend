@@ -1,10 +1,11 @@
 // src/components/Footer.js
 import React from 'react';
+import '../assets/styles/Footer.css';
 
 const Footer = () => {
     return (
-        <footer>
-            <p>© 2024 DAAVI SPECIAL. All rights reserved.</p>
+        <footer className="footer">
+            <p>&copy; 2023 DAAVI SPECIAL. All rights reserved.</p>
         </footer>
     );
 };
