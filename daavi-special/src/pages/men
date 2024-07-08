@@ -1,31 +1,28 @@
 // src/pages/Menu.js
 import React from 'react';
 import '../assets/styles/Menu.css';
-import fufuImage from '../assets/images/fufu.jpg';
-import omotuoImage from '../assets/images/omotuo.jpg';
-import bankuImage from '../assets/images/bankutil.jpg';
 
 const menuItems = [
     {
         id: 1,
         name: 'Fufu and Light Soup',
-        description: 'Classic Ghanaian dish with Fufu, Lightsoup, Fish, Chicken, Meat, or Pork.',
+        description: 'Classic Ghanaian dish with Fufu, Lightsoup, Fish,chicken, Meat or Pork.',
         price: 'GHS 30',
-        image: fufuImage,
+        image: '../assets/images/fufu.jpg',
     },
     {
         id: 2,
-        name: 'Omotuo Special',
-        description: 'Rice balls, soup (groundnut or palmnut), Fish, Snail, Chicken, or Meat.',
+        name: 'Omotuo special',
+        description: 'Rice balls, soup(groundnut or Palmnut), Fish, Snail, Chicken, or Meat.',
         price: 'GHS 25',
-        image: omotuoImage,
+        image: '../assets/images/omotuo.jpg',
     },
     {
         id: 3,
         name: 'Banku and Tilapia',
         description: 'Banku, onions, shito, red pepper, and grilled tilapia.',
         price: 'GHS 40',
-        image: bankuImage,
+        image: '../assets/images/bankutl.jpg',
     },
     // Add more menu items as needed
 ];
