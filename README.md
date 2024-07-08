@@ -6,7 +6,6 @@
 
 ```
 DaaviSpecial-Frontend(Repo)
-daavi-special/
 ├── public/
 │   ├── index.html
 │   └── ...
