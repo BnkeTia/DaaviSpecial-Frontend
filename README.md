@@ -17,6 +17,8 @@ daavi-special/
 |   |   |   |--index.css
 |   |   |   |--Footer.css
 |   |   |   |--Header.css
+|   |   |   |--Contact.css
+|   |   |   |--About.css
 │   ├── components/
 │   │   ├── Header.js
 │   │   ├── Footer.js
