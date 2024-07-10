@@ -4,6 +4,7 @@ import '../assets/styles/Menu.css';
 import fufuImage from '../assets/images/fufu.jpg';
 import omotuoImage from '../assets/images/omotuo.jpg';
 import bankuImage from '../assets/images/bankutil.jpg';
+import bankuroImage from '../assets/images/bankuro.jpg';
 
 const menuItems = [
     {
@@ -24,8 +25,15 @@ const menuItems = [
         id: 3,
         name: 'Banku and Tilapia',
         description: 'Banku, onions, shito, red pepper, and grilled tilapia.',
-        price: 'GHS 40',
+        price: 'GHS 50',
         image: bankuImage,
+    },
+    {
+        id: 4,
+        name: 'Banku and Okro',
+        description: 'Banku, chopped okro, red oil, wele, salmon.',
+        price: 'GHS 40',
+        image: bankuroImage,
     },
     // Add more menu items as needed
 ];
