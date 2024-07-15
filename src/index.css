@@ -1,0 +1,212 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@tailwind variants;
+@layer base {
+    h1 {
+        @apply text-5xl;
+    }
+    h2 {
+        @apply text-4xl;
+    }
+    h3 {
+        @apply text-3xl;
+    }
+    h4 {
+        @apply text-2xl;
+    }
+}
+
+
+
+@layer components {
+    .card {
+        background-color: theme('colors.white');
+        border-radius: theme('borderRadius.lg');
+        /* padding: theme('spacing.6'); */
+        box-shadow: theme('boxShadow.xl');
+    }
+    .mine {
+        @apply rounded-b-lg shadow-md text-blue-500
+    }
+    .btn {
+        @apply py-1 px-2 rounded
+    }
+    .btn.success {
+        @apply py-1 px-2 rounded bg-blue-400
+    }
+    .btn.danger {
+        @apply py-1 px-2 rounded bg-red-600
+    }
+    .btn.go {
+        @apply py-1 px-2 rounded bg-green-800
+    }
+    .btn.pink {
+        @apply py-1 px-2 rounded bg-pink-600
+    }
+    .btn.orange {
+        @apply py-1 px-2 rounded bg-orange-500
+    }
+    .btn.yellow {
+        @apply py-1 px-2 rounded bg-yellow-600
+    }
+    *{
+      @apply dark:bg-black
+    }
+    /* ... */
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.toast-message {
+    background: darkblue;
+    color: #fff;
+    font-size: 20px;
+    width: 34vw;
+    padding: 30px 20px;
+}
+
+.division{
+  text-align: left;
+}
+
+.division p{
+display:flex ;
+flex-flow : wrap;
+
+justify-content: space-between;
+text-align: left;
+}
+
+.singlee{
+  text-align: left;
+display: flex;
+  align-content: flex-start;
+  justify-items: flex-start;
+}
+
+
+.diverse:nth-child(even) {
+  @apply bg-blue-50;
+}
+
+
+body {
+  font-family: 'Poppins', sans-serif;
+  /* font-family: 'Roboto', sans-serif, 'Noto-Sans'; */
+  /* font-family: 'Noto Sans', sans-serif; */
+  /* font-family: Calibri,sans-serif; */
+}
+
+
+
+.containers {
+  max-width: 500px;
+  margin: 30px auto;
+  overflow: auto;
+  min-height: 300px;
+  border: 1px solid steelblue;
+  padding: 30px;
+  border-radius: 5px;
+}
+
+
+.btn:focus {
+  outline: none;
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+.btn-block {
+  display: block;
+  width: 100%;
+}
+
+
+
+
+
+.inline {
+    margin-inline: auto;
+}
+
+
+.ds-ring {
+  display: inline-block;
+  width: 80px;
+  height: 80px;
+}
+.ds-ring:after {
+  content: " ";
+  display: block;
+  width: 164px;
+  height: 164px;
+  margin: 8px;
+  border-radius: 50%;
+  border: 6px solid #ccc;
+  border-color: #ccc transparent #ccc transparent;
+  animation: ds-ring 1.2s linear infinite;
+}
+@keyframes ds-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.is-loading-bar {
+  height: 0;
+  overflow: hidden;
+
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+
+  /* .is-loading {
+    height: 80px;
+  } */
+}
+
+.is-loading-bar .is-loading {
+  height: 400px;
+}
+
+
+
+.FormGroup {
+	margin: 0 15px 20px;
+	padding: 0;
+	border-style: none;
+	background-color: white;
+	will-change: opacity, transform;
+	box-shadow: 0 6px 9px rgba(50, 50, 93, 0.06), 0 2px 5px rgba(0, 0, 0, 0.08), inset 0 1px 0 black;
+	border-radius: 4px;
+}
+
+.FormRow {
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-align: center;
+	align-items: center;
+	margin-left: 15px;
+	border-top: 1px solid #819efc;
+}
+
+
+
+button:active {
+	background-color: red;
+	box-shadow: 0 6px 9px rgba(50, 50, 93, 0.06), 0 2px 5px rgba(0, 0, 0, 0.08), inset 0 1px 0 #e298d8;
+	transform: scale(0.99);
+}
+
