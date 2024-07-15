@@ -32,9 +32,9 @@ const About = () => {
                     <li><strong>Community:</strong> We believe in giving back to our community and creating a welcoming environment for all our guests.</li>
                     <li><strong>Sustainability:</strong> We are committed to sustainable practices and source our ingredients responsibly.</li>
                 </ul>
-                <h2>Join Us</h2>
+                <h2>Join or Call Us</h2>
                 <p>
-                    Whether you're looking for a quick bite, a family dinner, or a place to celebrate special occasions, DAAVI SPECIAL is the perfect choice. Come and experience our passion for food and hospitality. We look forward to serving you!
+                    Whether you're looking for a quick bite, a family dinner, or a place to celebrate special occasions, DAAVI SPECIAL is the perfect choice. Come and experience our passion for food and hospitality. Call us on +233202746996, We look forward to serving you!.
                 </p>
             </section>
         </div>
