@@ -51,6 +51,6 @@ DaaviSpecial-Frontend(Repo)
 
 ## AUTHORS
 #### * Prince Ofosu - [@Pcosby5](https://github.com/Pcosby5)
-#### * Ifeoluwa Adebayo - 
+#### * Ifeoluwa Adebayo - [@Techlord05](https://github.com/TechLord05)
 #### * Bernard Nketia Acheampong - [@BnkeTia](https://github.com/BnkeTia)
 #### * Daniel Asare Ntow - [@DanielNtow](https://github.com/danielntow)
