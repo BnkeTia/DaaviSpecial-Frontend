@@ -32,7 +32,7 @@ const Layout = ({ children, title = 'Daavi Special', content, type, name, descri
                 
           
             <Header />
-            <div className="grid min-h-screen gap-0 pb-5 bg-blue-5">
+            <div className="grid min-h-screen gap-0 bg-blue-5">
                     {children}
         
             </div>

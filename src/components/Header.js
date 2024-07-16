@@ -3,7 +3,7 @@
 import '../assets/styles/Header.css';
 
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { MenuIcon, XIcon } from '@heroicons/react/outline';
 // import logo from '../assets/logo.png'; // daavi a logo file
 
@@ -17,25 +17,25 @@ const Header = () => {
       <div className="container flex items-center justify-between h-16 px-4 mx-auto">
         <div className="flex items-center">
           {/* <img src={logo} alt="Daavi Special" className="h-12" /> */}
-          <Link to="/" className="ml-4 text-2xl font-bold text-gray-800">DAAVI SPECIAL</Link>
+          <Link to="/" className="ml-4 text-4xl font-bold text-transparent max-md:text-2xl bg-gradient-to-r from-red-500 to-yellow-500 to-green-500 to-blue-500 to-purple-500 bg-clip-text">DAAVI SPECIAL</Link>
         </div>
         <div className="items-center hidden space-x-4 md:flex">
-          <Link to="/" className="text-gray-800 hover:text-red-600">Home</Link>
-          <Link to="/menu" className="text-gray-800 hover:text-red-600">Menu</Link>
-          <Link to="/about" className="text-gray-800 hover:text-red-600">About</Link>
-          <Link to="/contact" className="text-gray-800 hover:text-red-600">Contact</Link>
-          <Link to="/order" className="px-4 py-2 text-white bg-red-600 rounded hover:bg-red-700">Order Now</Link>
+          <NavLink to="/" className="text-gray-800 hover:text-red-600" style={({ isActive }) => ({ color: isActive ? "#FF5733" : "" })}>Home</NavLink>
+          <NavLink to="/menu" className="text-gray-800 hover:text-red-600" style={({ isActive }) => ({ color: isActive ? "#FF5733" : "" })}>Menu</NavLink>
+          <NavLink to="/about" className="text-gray-800 hover:text-red-600" style={({ isActive }) => ({ color: isActive ? "#FF5733" : "" })}>About</NavLink>
+          <NavLink to="/contact" className="text-gray-800 hover:text-red-600" style={({ isActive }) => ({ color: isActive ? "#FF5733" : "" })}>Contact</NavLink>
+          <NavLink to="/order" className="px-4 py-2 text-white bg-red-600 rounded hover:bg-red-700" style={({ isActive }) => ({ color: isActive ? "#FF5733" : "" })}>Order Now</NavLink>
         </div>
         <div className="md:hidden" onClick={handleClick}>
           {!nav ? <MenuIcon className="w-8 h-8 text-gray-800" /> : <XIcon className="w-8 h-8 text-gray-800" />}
         </div>
       </div>
       <div className={`md:hidden ${nav ? 'block' : 'hidden'}`}>
-        <Link to="/" className="block px-4 py-2 text-gray-800 hover:text-red-600">Home</Link>
-        <Link to="/menu" className="block px-4 py-2 text-gray-800 hover:text-red-600">Menu</Link>
-        <Link to="/about" className="block px-4 py-2 text-gray-800 hover:text-red-600">About</Link>
-        <Link to="/contact" className="block px-4 py-2 text-gray-800 hover:text-red-600">Contact</Link>
-        <button className="w-full px-4 py-2 mt-2 text-white bg-red-600 rounded hover:bg-red-700">Order Now</button>
+        <NavLink to="/" className="block px-4 py-2 text-gray-800 hover:text-red-600" style={({ isActive }) => ({ color: isActive ? "#FF5733" : "" })}>Home</NavLink>
+        <NavLink to="/menu" className="block px-4 py-2 text-gray-800 hover:text-red-600" style={({ isActive }) => ({ color: isActive ? "#FF5733" : "" })}>Menu</NavLink>
+        <NavLink to="/about" className="block px-4 py-2 text-gray-800 hover:text-red-600" style={({ isActive }) => ({ color: isActive ? "#FF5733" : "" })}>About</NavLink>
+        <NavLink to="/contact" className="block px-4 py-2 text-gray-800 hover:text-red-600" style={({ isActive }) => ({ color: isActive ? "#FF5733" : "" })}>Contact</NavLink>
+        <NavLink to="/order" className="w-full px-4 py-2 mt-2 text-white bg-red-600 rounded hover:bg-red-700">Order Now</NavLink>
       </div>
     </nav>
   );
