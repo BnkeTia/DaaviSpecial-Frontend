@@ -1,10 +1,12 @@
 // src/pages/About.js
 import React from 'react';
 import '../assets/styles/About.css';
+import Layout from '../components/Layout';
 
 const About = () => {
     return (
-        <div className="about-container">
+        <Layout>
+        <div className="about-container pt-[80px]">
             <section className="about-hero">
                 <h1>About DAAVI SPECIAL</h1>
                 <p>Discover the story behind our culinary journey.</p>
@@ -38,6 +40,7 @@ const About = () => {
                 </p>
             </section>
         </div>
+        </Layout>
     );
 };
 

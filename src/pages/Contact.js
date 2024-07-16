@@ -1,6 +1,7 @@
 // src/pages/Contact.js
 import React, { useState } from 'react';
 import '../assets/styles/Contact.css';
+import Layout from '../components/Layout';
 
 const Contact = () => {
     const [formData, setFormData] = useState({
@@ -24,6 +25,7 @@ const Contact = () => {
     };
 
     return (
+        <Layout>
         <div className="contact-container">
             <h1>Contact Us</h1>
             <form className="contact-form" onSubmit={handleSubmit}>
@@ -59,6 +61,7 @@ const Contact = () => {
                 <button type="submit">Send</button>
             </form>
         </div>
+        </Layout>
     );
 };
 

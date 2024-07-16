@@ -1,14 +1,13 @@
 // src/components/Footer.jsx
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { FaFacebook, FaTwitter, FaInstagram } from 'react-icons/fa';
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-800 text-white py-8">
-      <div className="containe mx-auto px-4">
-        <div className="flex flex-col md:flex-row justify-between items-center">
+    <footer className="py-6 text-white bg-gray-800">
+      <div className="container px-4 mx-auto">
+        <div className="flex flex-col items-center justify-between md:flex-row">
           <div className="mb-4 md:mb-0">
             <h1 className="text-2xl font-bold">DAAVI SPECIAL</h1>
             <p className="text-gray-400">Best place to satisfy your cravings</p>
@@ -20,7 +19,7 @@ const Footer = () => {
             <Link to="/contact" className="text-gray-400 hover:text-white">Contact</Link>
           </div>
         </div>
-        <div className="flex justify-center space-x-6 mt-4">
+        <div className="flex justify-center mt-4 space-x-6">
           <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white">
             <FaFacebook size={24} />
           </a>
@@ -31,7 +30,7 @@ const Footer = () => {
             <FaInstagram size={24} />
           </a>
         </div>
-        <div className="text-center text-gray-400 mt-4">
+        <div className="mt-4 text-center text-gray-400">
           &copy; {new Date().getFullYear()} DAAVI SPECIAL. All rights reserved.
         </div>
       </div>
@@ -40,18 +39,3 @@ const Footer = () => {
 }
 
 export default Footer;
-
-
-// // src/components/Footer.js
-// import React from 'react';
-// import '../assets/styles/Footer.css';
-
-// const Footer = () => {
-//     return (
-//         <footer className="footer">
-//             <p>&copy; BnKeTia 2024 DAAVI SPECIAL. All rights reserved.</p>
-//         </footer>
-//     );
-// };
-
-// export default Footer;

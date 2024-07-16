@@ -1,5 +1,5 @@
 
-import { Helmet } from "react-helmet-async";
+import { Helmet, HelmetProvider } from "react-helmet-async";
 import Header from "./Header.js";
 import { useDispatch, useSelector } from "react-redux";
 import Footer from "./Footer.js";
@@ -7,15 +7,14 @@ import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
 
 
+
 const Layout = ({ children, title = 'Daavi Special', content, type, name, description }) => {
-
-  
-
 
     const username = Cookies.get('username')
     const isAuthenticated = Cookies.get('isAuthenticated')
     return (
         <>
+        <HelmetProvider>
             <Helmet>
                 <title>{title}</title>
                 <meta name="description" content={content} />
@@ -28,15 +27,20 @@ const Layout = ({ children, title = 'Daavi Special', content, type, name, descri
                 <meta name="twitter:title" content={title} />
                 <meta name="twitter:description" content={description} />
             </Helmet>
+            </HelmetProvider>
+       
+                
+          
             <Header />
-            <div className="bg-blue-50  min-h-screen">
-
-
+            <div className="grid min-h-screen gap-0 pb-5 bg-blue-5">
                     {children}
         
-
             </div>
+        
+            
             <Footer />
+          
+            
         </>
     );
 };

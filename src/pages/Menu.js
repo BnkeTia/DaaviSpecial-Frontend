@@ -5,6 +5,7 @@ import fufuImage from '../assets/images/fufu.jpg';
 import omotuoImage from '../assets/images/omotuo.jpg';
 import bankuImage from '../assets/images/bankutil.jpg';
 import bankuroImage from '../assets/images/bankuro.jpg';
+import Layout from '../components/Layout';
 
 const menuItems = [
     {
@@ -40,8 +41,9 @@ const menuItems = [
 
 const Menu = () => {
     return (
-        <div className="menu-container">
-            <h1>Our Menu</h1>
+        <Layout>
+        <div className="menu-container pt-[80px]">
+            <h1 className="text-center ">Our Menu</h1>
             <div className="menu-items">
                 {menuItems.map((item) => (
                     <div key={item.id} className="menu-item">
@@ -53,6 +55,7 @@ const Menu = () => {
                 ))}
             </div>
         </div>
+        </Layout>
     );
 };
 

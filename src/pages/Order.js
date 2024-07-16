@@ -1,6 +1,7 @@
 // src/pages/Order.js
 import React, { useState } from 'react';
 import '../assets/styles/Order.css';
+import Layout from '../components/Layout';
 
 const Order = () => {
     const [formData, setFormData] = useState({
@@ -54,7 +55,8 @@ const Order = () => {
     };
 
     return (
-        <div className="order-container">
+        <Layout>
+        <div className="order-container pt-[100px]">
             <h1>Place Your Order</h1>
             <form onSubmit={handleSubmit} className="order-form">
                 <div className="form-group">
@@ -144,6 +146,7 @@ const Order = () => {
                 </div>
             )}
         </div>
+        </Layout>
     );
 };
 

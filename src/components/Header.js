@@ -13,21 +13,21 @@ const Header = () => {
   const handleClick = () => setNav(!nav);
 
   return (
-    <nav className="bg-white shadow-lg fixed w-full z-10">
-      <div className="container mx-auto px-4 flex justify-between items-center h-16">
+    <nav className="fixed z-10 w-full bg-white shadow-lg">
+      <div className="container flex items-center justify-between h-16 px-4 mx-auto">
         <div className="flex items-center">
           {/* <img src={logo} alt="Daavi Special" className="h-12" /> */}
-          <Link to="/" className="text-2xl font-bold text-gray-800 ml-4">DAAVI SPECIAL</Link>
+          <Link to="/" className="ml-4 text-2xl font-bold text-gray-800">DAAVI SPECIAL</Link>
         </div>
-        <div className="hidden md:flex items-center space-x-4">
+        <div className="items-center hidden space-x-4 md:flex">
           <Link to="/" className="text-gray-800 hover:text-red-600">Home</Link>
           <Link to="/menu" className="text-gray-800 hover:text-red-600">Menu</Link>
           <Link to="/about" className="text-gray-800 hover:text-red-600">About</Link>
           <Link to="/contact" className="text-gray-800 hover:text-red-600">Contact</Link>
-          <button className="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700">Order Now</button>
+          <Link to="/order" className="px-4 py-2 text-white bg-red-600 rounded hover:bg-red-700">Order Now</Link>
         </div>
         <div className="md:hidden" onClick={handleClick}>
-          {!nav ? <MenuIcon className="h-8 w-8 text-gray-800" /> : <XIcon className="h-8 w-8 text-gray-800" />}
+          {!nav ? <MenuIcon className="w-8 h-8 text-gray-800" /> : <XIcon className="w-8 h-8 text-gray-800" />}
         </div>
       </div>
       <div className={`md:hidden ${nav ? 'block' : 'hidden'}`}>
@@ -35,7 +35,7 @@ const Header = () => {
         <Link to="/menu" className="block px-4 py-2 text-gray-800 hover:text-red-600">Menu</Link>
         <Link to="/about" className="block px-4 py-2 text-gray-800 hover:text-red-600">About</Link>
         <Link to="/contact" className="block px-4 py-2 text-gray-800 hover:text-red-600">Contact</Link>
-        <button className="w-full bg-red-600 text-white px-4 py-2 mt-2 rounded hover:bg-red-700">Order Now</button>
+        <button className="w-full px-4 py-2 mt-2 text-white bg-red-600 rounded hover:bg-red-700">Order Now</button>
       </div>
     </nav>
   );
@@ -45,20 +45,3 @@ export default Header;
 
 
 
-// const Header = () => {
-//     return (
-//         <header>
-//             <nav>
-//                 <ul>
-//                     <li><Link to="/">Home</Link></li>
-//                     <li><Link to="/about">About</Link></li>
-//                     <li><Link to="/menu">Menu</Link></li>
-//                     <li><Link to="/order">Order</Link></li>
-//                     <li><Link to="/contact">Contact</Link></li>
-//                 </ul>
-//             </nav>
-//         </header>
-//     );
-// };
-
-// export default Header;
