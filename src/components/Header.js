@@ -13,7 +13,7 @@ const Header = () => {
   const handleClick = () => setNav(!nav);
 
   return (
-    <nav className="fixed z-10 w-full bg-white shadow-lg">
+    <nav className="fixed z-10 w-full bg-white shadow-lg ">
       <div className="container flex items-center justify-between h-16 px-4 mx-auto">
         <div className="flex items-center">
           {/* <img src={logo} alt="Daavi Special" className="h-12" /> */}
@@ -30,12 +30,12 @@ const Header = () => {
           {!nav ? <MenuIcon className="w-8 h-8 text-gray-800" /> : <XIcon className="w-8 h-8 text-gray-800" />}
         </div>
       </div>
-      <div className={`md:hidden ${nav ? 'block' : 'hidden'}`}>
+      <div className={`md:hidden ${nav ? 'block' : 'hidden'} max-md:mb-7`}>
         <NavLink to="/" className="block px-4 py-2 text-gray-800 hover:text-red-600" style={({ isActive }) => ({ color: isActive ? "#FF5733" : "" })}>Home</NavLink>
         <NavLink to="/menu" className="block px-4 py-2 text-gray-800 hover:text-red-600" style={({ isActive }) => ({ color: isActive ? "#FF5733" : "" })}>Menu</NavLink>
         <NavLink to="/about" className="block px-4 py-2 text-gray-800 hover:text-red-600" style={({ isActive }) => ({ color: isActive ? "#FF5733" : "" })}>About</NavLink>
         <NavLink to="/contact" className="block px-4 py-2 text-gray-800 hover:text-red-600" style={({ isActive }) => ({ color: isActive ? "#FF5733" : "" })}>Contact</NavLink>
-        <NavLink to="/order" className="w-full px-4 py-2 mt-2 text-white bg-red-600 rounded hover:bg-red-700">Order Now</NavLink>
+        <NavLink to="/order" className="w-full px-4 py-2 mt-2 ml-4 text-white bg-red-600 rounded hover:bg-red-700">Order Now</NavLink>
       </div>
     </nav>
   );
