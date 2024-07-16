@@ -35,7 +35,7 @@ const Header = () => {
         <NavLink to="/menu" className="block px-4 py-2 text-gray-800 hover:text-red-600" style={({ isActive }) => ({ color: isActive ? "#FF5733" : "" })}>Menu</NavLink>
         <NavLink to="/about" className="block px-4 py-2 text-gray-800 hover:text-red-600" style={({ isActive }) => ({ color: isActive ? "#FF5733" : "" })}>About</NavLink>
         <NavLink to="/contact" className="block px-4 py-2 text-gray-800 hover:text-red-600" style={({ isActive }) => ({ color: isActive ? "#FF5733" : "" })}>Contact</NavLink>
-        <NavLink to="/order" className="w-full px-4 py-2 mt-2 ml-4 text-white bg-red-600 rounded hover:bg-red-700">Order Now</NavLink>
+        <NavLink to="/order" className="block px-4 py-2 mx-2 mt-2 text-center text-white bg-red-600 rounded w-ful hover:bg-red-700">Order Now</NavLink>
       </div>
     </nav>
   );
