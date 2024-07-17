@@ -23,10 +23,6 @@ const About = () => {
                 <p>
                     At DAAVI SPECIAL, our mission is to provide an outstanding culinary experience that celebrates the richness of our diverse culinary heritage. We strive to create a welcoming atmosphere where customers can enjoy delicious food, excellent service, and a sense of community.
                 </p>
-                <h2>Meet Our Team</h2>
-                <p>
-                    Our team is made up of passionate individuals who share a love for great food and hospitality. From our skilled chefs who meticulously prepare each dish to our friendly staff who ensure you have a memorable dining experience, everyone at DAAVI SPECIAL is committed to excellence.
-                </p>
                 <h2>Our Values</h2>
                 <ul>
                     <li><strong>Quality:</strong> We use only the freshest and finest ingredients in all our dishes.</li>
@@ -34,6 +30,10 @@ const About = () => {
                     <li><strong>Community:</strong> We believe in giving back to our community and creating a welcoming environment for all our guests.</li>
                     <li><strong>Sustainability:</strong> We are committed to sustainable practices and source our ingredients responsibly.</li>
                 </ul>
+		<h2>Meet Our Team</h2>
+		<p>
+		   Our team is made up of passionate individuals who share a love for great food and hospitality. From our skilled chefs who meticulously prepare each dish to our friendly staff who ensure you have a memorable dining experience, everyone at DAAVI SPECIAL is committed to excellence.
+		</p>
                 <h2>Join Us</h2>
                 <p>
                     Whether you're looking for a quick bite, a family dinner, or a place to celebrate special occasions, DAAVI SPECIAL is the perfect choice. Come and experience our passion for food and hospitality. We look forward to serving you!
