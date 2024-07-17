@@ -29,7 +29,7 @@ const Layout = ({ children, title, content, type, name, description }) => (
     </Helmet>
 
     <Navbar />
-    <div className="container mx-auto max-w-5xl px-2 md:pt-24">{children}</div>
+    <div className="container max-w-5xl px-2 mx-auto md:pt-24">{children}</div>
   </>
 );
 
