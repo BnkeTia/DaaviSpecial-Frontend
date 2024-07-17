@@ -5,7 +5,7 @@ import Layout from '../components/Layout';
 
 const About = () => {
     return (
-        <Layout title="About DAAVI SPECIAL" description="Learn more about DAAVI SPECIAL, our mission, values, and team.">
+        <Layout>
             <div className="about-container">
                 <section className="about-hero">
                     <h1>About DAAVI SPECIAL</h1>
@@ -31,28 +31,9 @@ const About = () => {
                         <li><strong>Sustainability:</strong> We are committed to sustainable practices and source our ingredients responsibly.</li>
                     </ul>
                     <h2>Meet Our Team</h2>
-                    <div className="team-container">
-                        <div className="team-member">
-                            <img src="../assets/images/prince-image.jpg" alt="Prince Eugene Ofosu" />
-                            <h3>Prince Eugene Ofosu</h3>
-                            <p>Project Manager and Backend Engineer</p>
-                        </div>
-                        <div className="team-member">
-                            <img src="../assets/images/ifeoluwa-image.jpg" alt="Ifeoluwa Adebayo" />
-                            <h3>Ifeoluwa Adebayo</h3>
-                            <p>Backend Engineer</p>
-                        </div>
-                        <div className="team-member">
-                            <img src="../assets/images/bernard-image.jpg" alt="Bernard Acheampong" />
-                            <h3>Bernard Acheampong</h3>
-                            <p>Full Stack Engineer</p>
-                        </div>
-                        <div className="team-member">
-                            <img src="../assets/images/daniel-image.jpg" alt="Daniel Ntow" />
-                            <h3>Daniel Ntow</h3>
-                            <p>Full Stack Manager</p>
-                        </div>
-                    </div>
+                    <p>
+                        Our team is made up of passionate individuals who share a love for great food and hospitality. From our skilled chefs who meticulously prepare each dish to our friendly staff who ensure you have a memorable dining experience, everyone at DAAVI SPECIAL is committed to excellence.
+                    </p>
                     <h2>Join Us</h2>
                     <p>
                         Whether you're looking for a quick bite, a family dinner, or a place to celebrate special occasions, DAAVI SPECIAL is the perfect choice. Come and experience our passion for food and hospitality. We look forward to serving you!
