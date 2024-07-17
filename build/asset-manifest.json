@@ -1,19 +1,25 @@
 {
   "files": {
-    "main.css": "/static/css/main.298c86fb.css",
-    "main.js": "/static/js/main.38df0ab7.js",
-    "static/js/453.5ec60735.chunk.js": "/static/js/453.5ec60735.chunk.js",
+    "main.css": "/static/css/main.2855325c.css",
+    "main.js": "/static/js/main.0c627ebf.js",
+    "static/js/488.2b8398c0.chunk.js": "/static/js/488.2b8398c0.chunk.js",
     "static/media/bankuro.jpg": "/static/media/bankuro.b32c3ece911e6fccb44b.jpg",
+    "static/media/italian.jpg": "/static/media/italian.dae52c1b402850c8a57a.jpg",
     "static/media/bankutil.jpg": "/static/media/bankutil.9f5654c3f1d2b22990de.jpg",
+    "static/media/breakfast.jpg": "/static/media/breakfast.f18a5e7b3352f9fe6f39.jpg",
+    "static/media/friendRice.jpg": "/static/media/friendRice.74a1235fc684cde0b9f5.jpg",
+    "static/media/chinese.jpg": "/static/media/chinese.0606fde16ecf924a216a.jpg",
+    "static/media/caribbean.webp": "/static/media/caribbean.ecc9cdb92dda291908f8.webp",
     "static/media/fufu.jpg": "/static/media/fufu.e84e229edb67fb991d35.jpg",
+    "static/media/continental.webp": "/static/media/continental.c8392a510162f7eaa23a.webp",
     "static/media/omotuo.jpg": "/static/media/omotuo.a60482096f13f5899057.jpg",
     "index.html": "/index.html",
-    "main.298c86fb.css.map": "/static/css/main.298c86fb.css.map",
-    "main.38df0ab7.js.map": "/static/js/main.38df0ab7.js.map",
-    "453.5ec60735.chunk.js.map": "/static/js/453.5ec60735.chunk.js.map"
+    "main.2855325c.css.map": "/static/css/main.2855325c.css.map",
+    "main.0c627ebf.js.map": "/static/js/main.0c627ebf.js.map",
+    "488.2b8398c0.chunk.js.map": "/static/js/488.2b8398c0.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.298c86fb.css",
-    "static/js/main.38df0ab7.js"
+    "static/css/main.2855325c.css",
+    "static/js/main.0c627ebf.js"
   ]
 }
