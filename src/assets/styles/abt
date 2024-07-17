@@ -1,4 +1,4 @@
-/* src/assets/styles/About.css */
+/* src/pages/About.css */
 .about-container {
     padding: 2rem;
     max-width: 1200px;
@@ -49,40 +49,4 @@
 
 .about-content ul li strong {
     color: #D32F2F;
-}
-
-.team-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 2rem;
-    margin-top: 2rem;
-}
-
-.team-member {
-    background: #fff;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    padding: 1rem;
-    text-align: center;
-    flex: 1;
-    max-width: 200px;
-}
-
-.team-member img {
-    border-radius: 50%;
-    width: 100px;
-    height: 100px;
-    object-fit: cover;
-    margin-bottom: 1rem;
-}
-
-.team-member h3 {
-    font-size: 1.2rem;
-    color: #D32F2F;
-    margin-bottom: 0.5rem;
-}
-
-.team-member p {
-    font-size: 1rem;
-    color: #555;
 }
