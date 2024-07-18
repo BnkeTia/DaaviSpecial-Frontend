@@ -50,7 +50,7 @@ const Home = () => {
 
     return (
         <Layout>
-            <main className="bg-gray-100">
+            <main className="">
                 <section className="h-screen bg-center bg-cover" style={{ backgroundImage: `url(${friendRice})` }}>
                     <div className="flex items-center justify-center h-full bg-black bg-opacity-50">
                         <div className="px-4 text-center text-white">

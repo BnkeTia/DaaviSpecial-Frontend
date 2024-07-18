@@ -12,6 +12,8 @@ import Contact from './pages/Contact.js';
 import CategoryItems from './features/daavi/components/CategoryItems.js';
 import { useDispatch, useSelector } from 'react-redux';
 import { getCategories } from './features/daavi/myDaaviSlice.jsx';
+import Register from './features/redux-users/components/Register.js';
+import Login from './features/redux-users/components/Login.js';
 
 function App() {
 
@@ -35,6 +37,8 @@ function App() {
                         <Route path="/order" element={<Order />} />
                         <Route path="/contact" element={<Contact />} />
                         <Route path="/category/:slug" element={<CategoryItems/>} />
+                        <Route path="/register" element={<Register/>} />
+                        <Route path="/login" element={<Login/>} />
                     </Routes>
             
         </Router>

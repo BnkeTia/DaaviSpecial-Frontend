@@ -32,7 +32,7 @@ const Menu = () => {
 
     return (
         <Layout>
-            <main className="pt-24 bg-gray-100 md:pt-24">
+            <main className="pt-24 md:pt-24">
                 <div className="container px-4 mx-auto">
                     {/* Introduction Section */}
                     <section className="px-2 mb-12 bg-yellow-900 bg-center bg-cover -y-4 md:px-8 md:py-2" style={{ backgroundImage: `url(${friendRice})` }}>
@@ -50,13 +50,13 @@ const Menu = () => {
                                 {status === 'loading' && <p>Loading...</p>}
                                 {status === 'failed' && <p>Failed to load menu items.</p>}
                                 {menus?.map((item) => (
-                                    <div key={item.id} className="p-4 bg-gray-100 rounded-lg shadow">
+                                    <div key={item.id} className="p-4 bg-gray-100 rounded-lg shadow relative">
                                         <img src={item.image_url} alt={item.name} className="object-cover w-full h-48 rounded-t-lg" />
                                         <div className="p-4">
                                             <h3 className="mb-2 text-xl font-bold">{item.name}</h3>
                                             <p className="text-gray-600">{item.description}</p>
                                             <p className="font-bold text-gray-800">${item.price}</p>
-                                            <div className="mt-4">
+                                            <div className="mt-4 bottom-0 absolute pb-3">
                                                 <button className="px-4 py-2 font-bold text-white bg-yellow-500 rounded hover:bg-yellow-600">
                                                     Add to Cart
                                                 </button>

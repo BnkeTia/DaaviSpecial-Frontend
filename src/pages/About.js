@@ -10,7 +10,7 @@ import danielImage from '../assets/images/danny.jpg';
 const About = () => {
     return (
         <Layout title="About DAAVI SPECIAL" description="Learn more about DAAVI SPECIAL, our mission, values, and team.">
-            <div className="about-container">
+            <div className="about-container ">
                 <section className="about-hero">
                     <h1>About DAAVI SPECIAL</h1>
                     <p>Discover the story behind our culinary journey.</p>
