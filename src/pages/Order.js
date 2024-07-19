@@ -19,8 +19,8 @@ const Order = () => {
     const [isStaffLoggedIn, setIsStaffLoggedIn] = useState(false);
     const [orders, setOrders] = useState([
         // Example orders. Replace with actual data fetching logic.
-        { id: 1, name: 'John Doe', details: '2 x Fufu and Light Soup' },
-        { id: 2, name: 'Jane Smith', details: '1 x Omotuo Special' },
+        { id: 1, name: 'Big Ben, 0550042190', details: '2 x Fufu and Light Soup' },
+        { id: 2, name: 'Jane Smith, 0243109353', details: '1 x Omotuo Special' },
     ]);
 
     const handleChange = (e) => {
