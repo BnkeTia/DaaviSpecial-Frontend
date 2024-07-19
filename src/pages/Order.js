@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+// src/pages/Order.js
+import React, { useState } from 'react';
 import '../assets/styles/Order.css';
 import Layout from '../components/Layout';
 
@@ -17,23 +17,11 @@ const Order = () => {
     });
 
     const [isStaffLoggedIn, setIsStaffLoggedIn] = useState(false);
-    const [orders, setOrders] = useState([]);
-    const [submissionStatus, setSubmissionStatus] = useState('');
-
-    useEffect(() => {
-        if (isStaffLoggedIn) {
-            fetchOrders();
-        }
-    }, [isStaffLoggedIn]);
-
-    const fetchOrders = async () => {
-        try {
-            const response = await axios.get('https://daavispecial-backend.onrender.com/api/orders');
-            setOrders(response.data);
-        } catch (error) {
-            console.error('Error fetching orders:', error);
-        }
-    };
+    const [orders, setOrders] = useState([
+        // Example orders. Replace with actual data fetching logic.
+        { id: 1, name: 'Big Ben, 0550042190', details: '2 x Fufu and Light Soup' },
+        { id: 2, name: 'Jane Smith, 0243109353', details: '1 x Omotuo Special' },
+    ]);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -51,126 +39,113 @@ const Order = () => {
         });
     };
 
-    const handleSubmit = async (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
-        try {
-            await axios.post('https://daavispecial-backend.onrender.com/api/orders', formData);
-            console.log('Order submitted:', formData);
-            setSubmissionStatus('Order submitted successfully, we will contact you soon');
-        } catch (error) {
-            console.error('Error submitting order:', error);
-            setSubmissionStatus('Failed to submit order, please try again later.');
-        }
+        // Here you can handle form submission, e.g., send data to a backend server
+        console.log('Order submitted:', formData);
     };
 
-    const handleStaffLogin = async (e) => {
+    const handleStaffLogin = (e) => {
         e.preventDefault();
-        try {
-            const response = await axios.post('https://daavispecial-backend.onrender.com/api/staff/login', staffLogin);
-            if (response.data.success) {
-                setIsStaffLoggedIn(true);
-            } else {
-                console.error('Login failed');
-            }
-        } catch (error) {
-            console.error('Error during staff login:', error);
+        // Here you can handle staff login, e.g., authenticate with a backend server
+        // For demo purposes, we assume any username and password is correct.
+        if (staffLogin.username && staffLogin.password) {
+            setIsStaffLoggedIn(true);
         }
     };
 
     return (
         <Layout>
-            <div className="order-container pt-[100px]">
-                <h1>Place Your Order</h1>
-                <form onSubmit={handleSubmit} className="order-form">
+        <div className="order-container pt-[100px]">
+            <h1>Place Your Order</h1>
+            <form onSubmit={handleSubmit} className="order-form">
+                <div className="form-group">
+                    <label htmlFor="name">Name:</label>
+                    <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        value={formData.name}
+                        onChange={handleChange}
+                        required
+                    />
+                </div>
+                <div className="form-group">
+                    <label htmlFor="email">Email:</label>
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        value={formData.email}
+                        onChange={handleChange}
+                        required
+                    />
+                </div>
+                <div className="form-group">
+                    <label htmlFor="phone">Phone:</label>
+                    <input
+                        type="tel"
+                        id="phone"
+                        name="phone"
+                        value={formData.phone}
+                        onChange={handleChange}
+                        required
+                    />
+                </div>
+                <div className="form-group">
+                    <label htmlFor="orderDetails">Order Details:</label>
+                    <textarea
+                        id="orderDetails"
+                        name="orderDetails"
+                        value={formData.orderDetails}
+                        onChange={handleChange}
+                        required
+                    />
+                </div>
+                <button type="submit">Submit Order</button>
+            </form>
+
+            <h2>Staff Login</h2>
+            {!isStaffLoggedIn ? (
+                <form onSubmit={handleStaffLogin} className="login-form">
                     <div className="form-group">
-                        <label htmlFor="name">Name:</label>
+                        <label htmlFor="username">Username:</label>
                         <input
                             type="text"
-                            id="name"
-                            name="name"
-                            value={formData.name}
-                            onChange={handleChange}
+                            id="username"
+                            name="username"
+                            value={staffLogin.username}
+                            onChange={handleLoginChange}
                             required
                         />
                     </div>
                     <div className="form-group">
-                        <label htmlFor="email">Email:</label>
+                        <label htmlFor="password">Password:</label>
                         <input
-                            type="email"
-                            id="email"
-                            name="email"
-                            value={formData.email}
-                            onChange={handleChange}
+                            type="password"
+                            id="password"
+                            name="password"
+                            value={staffLogin.password}
+                            onChange={handleLoginChange}
                             required
                         />
                     </div>
-                    <div className="form-group">
-                        <label htmlFor="phone">Phone:</label>
-                        <input
-                            type="tel"
-                            id="phone"
-                            name="phone"
-                            value={formData.phone}
-                            onChange={handleChange}
-                            required
-                        />
-                    </div>
-                    <div className="form-group">
-                        <label htmlFor="orderDetails">Order Details:</label>
-                        <textarea
-                            id="orderDetails"
-                            name="orderDetails"
-                            value={formData.orderDetails}
-                            onChange={handleChange}
-                            required
-                        />
-                    </div>
-                    <button type="submit">Submit Order</button>
+                    <button type="submit">Login</button>
                 </form>
-
-                {submissionStatus && <p className="submission-status">{submissionStatus}</p>}
-
-                <h2>Staff Login</h2>
-                {!isStaffLoggedIn ? (
-                    <form onSubmit={handleStaffLogin} className="login-form">
-                        <div className="form-group">
-                            <label htmlFor="username">Username:</label>
-                            <input
-                                type="text"
-                                id="username"
-                                name="username"
-                                value={staffLogin.username}
-                                onChange={handleLoginChange}
-                                required
-                            />
-                        </div>
-                        <div className="form-group">
-                            <label htmlFor="password">Password:</label>
-                            <input
-                                type="password"
-                                id="password"
-                                name="password"
-                                value={staffLogin.password}
-                                onChange={handleLoginChange}
-                                required
-                            />
-                        </div>
-                        <button type="submit">Login</button>
-                    </form>
-                ) : (
-                    <div className="orders-list">
-                        <h2>Customer Orders</h2>
-                        <ul>
-                            {orders.map((order) => (
-                                <li key={order.id}>
-                                    <p><strong>Name:</strong> {order.name}</p>
-                                    <p><strong>Order:</strong> {order.details}</p>
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
-                )}
-            </div>
+            ) : (
+                <div className="orders-list">
+                    <h2>Customer Orders</h2>
+                    <ul>
+                        {orders.map((order) => (
+                            <li key={order.id}>
+                                <p><strong>Name:</strong> {order.name}</p>
+                                <p><strong>Order:</strong> {order.details}</p>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+            )}
+        </div>
         </Layout>
     );
 };
