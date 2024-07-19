@@ -21,15 +21,18 @@ const Login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(loginUser(formData))
+    dispatch(loginUser(formData)).then((result) => {
+      if (!result.error) {
         navigate('/');
+      }
+    });
   };
 
   return (
     <Layout title="Login Page">
-      <div className="relative flex items-center justify-center min-h-24 py-12 bg-fixed bg-cover bg-center" style={{ backgroundImage: `url(${italian})` }}>
+      <div className="relative flex items-center justify-center min-h-screen py-12 bg-fixed bg-cover bg-center" style={{ backgroundImage: `url(${italian})` }}>
         <div className="absolute inset-0 bg-black opacity-50"></div>
-        <div className="relative p-8 bg-white rounded shadow-lg w-full max-w-md max-md:mx-[20px]">
+        <div className="relative p-8 bg-white rounded shadow-lg w-full max-w-md">
           <h2 className="mb-6 text-3xl font-bold text-center text-gradient bg-gradient-to-r from-red-500 via-yellow-500 to-green-500 bg-clip-text text-transparent">
             Daavi Special 
             <p className="text-sm">Login for exclusive benefits</p>

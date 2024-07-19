@@ -1,5 +1,4 @@
-
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { registerUser } from '../myUserSlice';
 import { Link, useNavigate } from 'react-router-dom';
@@ -28,14 +27,19 @@ const Register = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(registerUser(formData));
-    if (status === "succeeded") navigate('/login');
   };
+
+  useEffect(() => {
+    if (status === "succeeded") {
+      navigate('/login');
+    }
+  }, [status, navigate]);
 
   return (
     <Layout title="Register Page">
       <div className="relative flex items-center justify-center min-h-screen py-12 bg-fixed bg-cover bg-center pt-[80px]" style={{ backgroundImage: `url(${italian})` }}>
         <div className="absolute inset-0 bg-black opacity-50"></div>
-        <div className="relative p-8 bg-white rounded shadow-lg w-full max-w-4xl max-sm:mx-[20px] ">
+        <div className="relative p-8 bg-white rounded shadow-lg w-full max-w-4xl max-sm:mx-[20px]">
           <h2 className="mb-6 text-3xl font-bold text-center text-gradient bg-gradient-to-r from-red-500 via-yellow-500 to-green-500 bg-clip-text text-transparent">
             Daavi Special 
             <p className="text-sm">Register for exclusive benefits</p>
