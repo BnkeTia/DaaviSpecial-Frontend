@@ -46,8 +46,7 @@ DaaviSpecial-Frontend(Repo)
 #### * Backend Development: `Python`, `Django`
 #### * Database: `Sqlite3/PostgreSQL`
 #### * Version Control: `Git`, `GitHub`
-#### * Deployment: `Heroku` or `Netlify` for deployment or `Vercel`
-#### * Design Tools: Figma or Adobe XD for UI/UX design
+#### * Deployment: `Render`  for backend `Vercel`for frontend
 
 
 ## AUTHORS
