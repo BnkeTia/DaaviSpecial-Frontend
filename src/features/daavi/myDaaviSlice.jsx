@@ -12,6 +12,8 @@ const baseURL =  "https://daavispecial-backend.onrender.com/api/";
 
 
 
+
+
 // Retrieve authentication tokens from cookies.
 const getAuthTokensFromCookies = () => {
   const access_token = Cookies.get("access_token");
@@ -29,7 +31,8 @@ const initialState = {
   categories: [],
   categoryItems: [],
   menus: [],
-  menuItems: {}
+  menuItems: {},
+  orders: []
 };
 
 
@@ -87,6 +90,58 @@ export const getCategoryItems = createAsyncThunk(
   }
 );
 
+export const addOrderItem = createAsyncThunk(
+  "mydaavi/addOrderItem",
+  async (orderItemData, { rejectWithValue }) => {
+    try {
+      const response = await axios.post(`${baseURL}order-items/`, orderItemData);
+      return response.data;
+    } catch (error) {
+      return rejectWithValue(error.response?.data);
+    }
+  }
+);
+
+export const createOrders = createAsyncThunk(
+  "mydaavi/createOrders",
+  async (orderData, { rejectWithValue }) => {
+    try {
+      const response = await axios.post(`${baseURL}orders/`, orderData);
+      return response.data;
+    } catch (error) {
+      return rejectWithValue(error.response?.data);
+    }
+  }
+);
+
+
+export const createOrder = createAsyncThunk(
+  "mydaavi/createOrder",
+  async (payload, { rejectWithValue }) => {
+    try {
+      let response = await axiosDannyInstance.post(`${baseURL}orders/`, payload);
+      return response.data;
+    } catch (error) {
+      console.log("Error creating order", error.response);
+      return rejectWithValue(error.response?.data);
+    }
+  }
+);
+
+export const addItemToOrder = createAsyncThunk(
+  "mydaavi/addItemToOrder",
+  async ({ orderId, payload }, { rejectWithValue }) => {
+    try {
+      let response = await axiosDannyInstance.post(`${baseURL}orders/${orderId}/add_items/`, payload);
+      return response.data;
+    } catch (error) {
+      console.log("Error adding item to order", error.response);
+      return rejectWithValue(error.response?.data);
+    }
+  }
+);
+
+
 export const myDaaviSlice = createSlice({
   name: "mydaavi",
   initialState,
@@ -124,6 +179,42 @@ export const myDaaviSlice = createSlice({
         // console.log('categoryItems')
     })
     .addCase(getCategoryItems.rejected, handleAsyncError)
+    .addCase(addOrderItem.pending, (state) => {
+      state.loading = true;
+    })
+    .addCase(addOrderItem.fulfilled, (state, action) => {
+      state.loading = false;
+      state.entities.push(action.payload);
+    })
+    .addCase(addOrderItem.rejected, handleAsyncError)
+    .addCase(createOrders.pending, (state) => {
+      state.loading = true;
+    })
+    .addCase(createOrders.fulfilled, (state, action) => {
+      state.loading = false;
+      state.entities.push(action.payload);
+    })
+    .addCase(createOrders.rejected, handleAsyncError)
+    .addCase(createOrder.pending, (state, action) => {
+      state.loading = true;
+    })
+    .addCase(createOrder.fulfilled, (state, action) => {
+      state.loading = false;
+      state.orders.push(action.payload);
+    })
+    .addCase(createOrder.rejected, handleAsyncError)
+    .addCase(addItemToOrder.pending, (state, action) => {
+      state.loading = true;
+    })
+    .addCase(addItemToOrder.fulfilled, (state, action) => {
+      state.loading = false;
+      const orderIndex = state.orders.findIndex(order => order.id === action.payload.id);
+      if (orderIndex !== -1) {
+        state.orders[orderIndex] = action.payload;
+      }
+    })
+    .addCase(addItemToOrder.rejected, handleAsyncError);
+    
   },
   devTools: process.env.NODE_ENV !== "production",
 });
