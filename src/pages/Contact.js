@@ -38,7 +38,7 @@ const Contact = () => {
             <div className="space-y-4">
               <div className="flex items-center">
                 <svg className="w-6 h-6 text-blue-600 mr-3" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5h18M4 8h16m-7 4h7m-7 4h7m-7 4h7m-7 4h7" /></svg>
-                <p className="text-gray-600">1234 Main Street, Jachie, Kumasi, Ghana</p>
+                <p className="text-gray-600">1234 Main Street, Ejisu, Kumasi, Ghana</p>
               </div>
               <div className="flex items-center">
                 <svg className="w-6 h-6 text-blue-600 mr-3" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 21l-4-4-4 4V5h8v16z" /></svg>
@@ -61,7 +61,7 @@ const Contact = () => {
         </div>
 
         <div className="mt-8">
-          <h2 className="text-2xl font-semibold text-gray-700 mb-4">Find Us</h2>
+          <h2 className="text-2xl font-semibold text-gray-700 mb-5">Find Us</h2>
           <div className="w-full h-80 rounded-lg overflow-hidden shadow-lg">
           <iframe
   title="Google Maps"
