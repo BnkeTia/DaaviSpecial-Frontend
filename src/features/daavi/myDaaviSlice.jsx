@@ -27,6 +27,7 @@ const tryUserFromStorage = userProfileCookie ? userProfileCookie : {};
 
 
 const initialState = {
+  loading: false,
   entities: [],
   categories: [],
   categoryItems: [],

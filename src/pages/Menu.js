@@ -13,6 +13,7 @@ import chinese from "../assets/images/chinese.jpg";
 import breakfast from "../assets/images/breakfast.jpg";
 import caribbean from "../assets/images/caribbean.webp";
 import Cookies from "js-cookie";
+import Spinner from '../components/Spinner';
 
 
 const images = {
@@ -27,7 +28,7 @@ const images = {
 const Menu = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate()
-    const { categories, menus, status, orders } = useSelector((store) => store.mydaavi);
+    const { categories, menus, status, orders, loading } = useSelector((store) => store.mydaavi);
 
     useEffect(() => {
         dispatch(getCategories());
@@ -120,7 +121,7 @@ const Menu = () => {
                         <section className="md:col-span-8">
                             <h2 className="mb-8 text-2xl font-bold text-center">Our Menu</h2>
                             <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-                                {status === 'loading' && <p>Loading...</p>}
+                                {loading === 'false' && <Spinner/>}
                                 {status === 'failed' && <p>Failed to load menu items.</p>}
                                 {menus?.map((item) => (
                                     <div key={item.id} className="relative p-4 transition-transform transform bg-gray-100 rounded-lg shadow hover:scale-105">
