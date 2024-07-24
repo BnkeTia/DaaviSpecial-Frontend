@@ -1,0 +1,11 @@
+--2024-07-24 12:22:56--  https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZEElXjc_agEDjKKhsH3kWOP3HXnEmLj2FGg
+Resolving encrypted-tbn0.gstatic.com (encrypted-tbn0.gstatic.com)... 142.250.201.78, 216.239.34.10, 216.239.32.10, ...
+Connecting to encrypted-tbn0.gstatic.com (encrypted-tbn0.gstatic.com)|142.250.201.78|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 2117 (2.1K) [image/png]
+Saving to: ‘dvs.jpg’
+
+dvs.jpg                0%[                      ]       0  --.-KB/s               dvs.jpg              100%[=====================>]   2.07K  --.-KB/s    in 0s      
+
+2024-07-24 12:23:03 (14.9 MB/s) - ‘dvs.jpg’ saved [2117/2117]
+
