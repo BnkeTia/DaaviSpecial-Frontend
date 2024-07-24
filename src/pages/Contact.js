@@ -46,7 +46,7 @@ const Contact = () => {
               </div>
               <div className="flex items-center">
                 <svg className="w-6 h-6 text-blue-600 mr-3" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 7v10a4 4 0 004 4h12a4 4 0 004-4V7a4 4 0 00-4-4H7a4 4 0 00-4 4z" /></svg>
-                <p className="text-gray-600">dasarentow@gmail.com</p>
+                <p className="text-gray-600">daavispecial@gmail.com</p>
               </div>
               <div className="flex items-center">
                 <svg className="w-6 h-6 text-blue-600 mr-3" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.293 14.293a1 1 0 010-1.414l1.4-1.4a1 1 0 00-1.414-1.414l-1.4 1.4a1 1 0 01-1.414 0l-4.6-4.6a1 1 0 00-1.414 1.414l4.6 4.6a1 1 0 011.414 0l1.4 1.4a1 1 0 001.414-1.414l-1.4-1.4a1 1 0 00-1.414 1.414l1.4 1.4a1 1 0 001.414 0l1.4-1.4a1 1 0 000-1.414z" /></svg>
