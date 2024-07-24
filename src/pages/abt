@@ -12,7 +12,7 @@ const About = () => {
         <Layout title="About DAAVI SPECIAL" description="Learn more about DAAVI SPECIAL, our mission, values, and team.">
             <div className="about-container ">
                 <section className="about-hero">
-                    <h1 className=" hero-title">About DAAVI SPECIAL</h1>
+                    <h1>About DAAVI SPECIAL</h1>
                     <p>Discover the story behind our culinary journey.</p>
                 </section>
                 <section className="about-content">
