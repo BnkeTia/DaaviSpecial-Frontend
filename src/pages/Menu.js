@@ -1,7 +1,7 @@
 
 
 import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getCategories, getMenus, createOrder, addItemToOrder } from '../features/daavi/myDaaviSlice';
 import Layout from '../components/Layout';
@@ -26,6 +26,7 @@ const images = {
 
 const Menu = () => {
     const dispatch = useDispatch();
+    const navigate = useNavigate()
     const { categories, menus, status, orders } = useSelector((store) => store.mydaavi);
 
     useEffect(() => {
@@ -34,12 +35,14 @@ const Menu = () => {
     }, [dispatch]);
 
     const customer = Cookies.get("username")
+ 
 
-    const handleAddToCart = async (item) => {
+
+    const handleAddToCarts = async (item) => {
         const orderPayload = {
             customer: customer, 
             status: "Processing",
-            delivery_method: "Delivery" 
+            delivery_method: "Pickup" 
         };
 
         let order = orders.find(o => o.status === 'Processing');
@@ -56,6 +59,50 @@ const Menu = () => {
 
         dispatch(addItemToOrder({ orderId: order.id, payload: itemPayload }));
     };
+    const handleAddToCart = async (item) => {
+        console.log('my items', item, item.id)
+    
+        const customer = Cookies.get("username");
+        const delivery_method = "Pickup";
+        
+        const itemPayloads = [{
+            menu: item.id,
+            price: item.price,
+            quantity: 1,
+        }];
+    
+        const orderPayload = {
+            customer: customer, 
+            status: "Processing",
+            delivery_method: "Pickup",
+            items: itemPayloads  // Ensure items is an array
+        };
+    
+        let order = orders.find(o => o.status === 'Processing');
+        if (!order) {
+            console.log('am here')
+            order = await dispatch(createOrder(orderPayload)).unwrap();
+            navigate('/my-order')
+        } else {
+            // If order exists, add item to existing order
+            console.log('am not here')
+            const itemPayload = [{
+                customer: customer,
+                order: order.id,
+                quantity: 1,
+                price: item.price,
+                menu: item.id,
+                delivery_method: "Pickup",
+                items: itemPayloads
+            }];
+            // dispatch(addItemToOrder({ orderId: order.id, payload: itemPayload }));
+            dispatch(createOrder(itemPayload));
+        }
+        navigate('/my-order')
+    };
+    
+
+   
 
     return (
         <Layout>
@@ -97,7 +144,7 @@ const Menu = () => {
                         </section>
 
                         {/* Categories Section */}
-                        <aside className="md:col-span-2">
+                        <aside className="md:col-span-2 max-md:hidden">
                             <h2 className="mb-8 text-2xl font-bold text-center">Categories</h2>
                             <div className="grid grid-cols-1 gap-4">
                                 {categories.map((category) => (

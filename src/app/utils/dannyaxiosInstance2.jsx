@@ -8,6 +8,9 @@ const baseURL = "https://daavispecial-backend.onrender.com/api/";
 let authTokens = Cookies.get("access_token") ? Cookies.get("access_token") : null;
 let refreshToken = Cookies.get("refresh_token");
 
+console.log('access_token ', authTokens)
+console.log('refresh_token ', refreshToken)
+
 const axiosDannyInstance = axios.create({
   baseURL,
   headers: {

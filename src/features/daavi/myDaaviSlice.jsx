@@ -32,7 +32,8 @@ const initialState = {
   categoryItems: [],
   menus: [],
   menuItems: {},
-  orders: []
+  orders: [],
+  myOrders:[]
 };
 
 
@@ -119,10 +120,24 @@ export const createOrder = createAsyncThunk(
   "mydaavi/createOrder",
   async (payload, { rejectWithValue }) => {
     try {
-      let response = await axiosDannyInstance.post(`${baseURL}orders/`, payload);
+      console.log('payload', payload)
+      let response = await axiosDannyInstance.post(`orders/`, payload);
+      console.log('response,', response)
       return response.data;
     } catch (error) {
-      console.log("Error creating order", error.response);
+      console.log("Error creating order", error);
+      return rejectWithValue(error.response?.data);
+    }
+  }
+);
+export const getOrders = createAsyncThunk(
+  "mydaavi/getOrders",
+  async (payload, { rejectWithValue }) => {
+    try {
+      let response = await axiosDannyInstance.get(`orders/`);
+      return response.data;
+    } catch (error) {
+      console.log("Error getting order", error);
       return rejectWithValue(error.response?.data);
     }
   }
@@ -140,7 +155,19 @@ export const addItemToOrder = createAsyncThunk(
     }
   }
 );
-
+export const deleteOrder = createAsyncThunk(
+  "mydaavi/deleteOrder",
+  async ( orderId , { rejectWithValue }) => {
+    try {
+      console.log('id to be deleted', orderId);
+      let response = await axiosDannyInstance.delete(`orders/${orderId}/`);
+      return orderId; 
+    } catch (error) {
+      console.log("Error deleting order", error.response);
+      return rejectWithValue(error.response?.data);
+    }
+  }
+);
 
 export const myDaaviSlice = createSlice({
   name: "mydaavi",
@@ -213,7 +240,25 @@ export const myDaaviSlice = createSlice({
         state.orders[orderIndex] = action.payload;
       }
     })
-    .addCase(addItemToOrder.rejected, handleAsyncError);
+    .addCase(addItemToOrder.rejected, handleAsyncError)
+    .addCase(getOrders.pending, (state, action) => {
+      state.loading = true;
+  })
+  .addCase(getOrders.fulfilled, (state, action) => {
+      state.loading = false;
+      state.myOrders = action.payload;
+      // console.log('categories', state.categories)
+  })
+  .addCase(getOrders.rejected, handleAsyncError)
+  .addCase(deleteOrder.pending, (state) => {
+    state.loading = true;
+  })
+  .addCase(deleteOrder.fulfilled, (state, action) => {
+    state.loading = false;
+    // Remove the order with the ID from the state
+    state.myOrders = state.myOrders.filter(order => order.id !== action.payload);
+  })
+  .addCase(deleteOrder.rejected, handleAsyncError);
     
   },
   devTools: process.env.NODE_ENV !== "production",

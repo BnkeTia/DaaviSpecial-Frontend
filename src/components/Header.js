@@ -38,7 +38,7 @@ const Header = () => {
           <NavLink to="/menu" className="text-gray-800 hover:text-red-600" style={({ isActive }) => ({ color: isActive ? "#FF5733" : "" })}>Menu</NavLink>
           <NavLink to="/about" className="text-gray-800 hover:text-red-600" style={({ isActive }) => ({ color: isActive ? "#FF5733" : "" })}>About</NavLink>
           <NavLink to="/contact" className="text-gray-800 hover:text-red-600" style={({ isActive }) => ({ color: isActive ? "#FF5733" : "" })}>Contact</NavLink>
-          <NavLink to="/order" className="px-4 py-2 text-white bg-red-600 rounded hover:bg-red-700" style={({ isActive }) => ({ color: isActive ? "#FF5733" : "" })}>Order Now</NavLink>
+          <NavLink to="/my-order" className="px-4 py-2 text-white bg-red-600 rounded hover:bg-red-700" style={({ isActive }) => ({ color: isActive ? "#FFFFFF" : "#FFFFFF" })}>Order Now</NavLink>
           {isAuthenticated ? (
             <div className="flex items-center space-x-4">
               {/* <span className="text-gray-800 font-semibold text-lg">Hello, <span className="text-blue-600">{user?.username}</span></span> */}
@@ -60,7 +60,7 @@ const Header = () => {
         <NavLink to="/menu" className="block px-4 py-2 text-gray-800 hover:text-red-600" style={({ isActive }) => ({ color: isActive ? "#FF5733" : "" })}>Menu</NavLink>
         <NavLink to="/about" className="block px-4 py-2 text-gray-800 hover:text-red-600" style={({ isActive }) => ({ color: isActive ? "#FF5733" : "" })}>About</NavLink>
         <NavLink to="/contact" className="block px-4 py-2 text-gray-800 hover:text-red-600" style={({ isActive }) => ({ color: isActive ? "#FF5733" : "" })}>Contact</NavLink>
-        <NavLink to="/order" className="block px-4 py-2 text-white bg-red-600 rounded hover:bg-red-700" style={({ isActive }) => ({ color: isActive ? "#FF5733" : "" })}>Order Now</NavLink>
+        <NavLink to="/my-order" className="block px-4 py-2 text-white bg-red-600 rounded hover:bg-red-700" style={({ isActive }) => ({ color: isActive ? "#FFFFFF" : "#FFFFFF" })}>Order Now</NavLink>
         {isAuthenticated ? (
           <div className="flex flex-col space-y-2">
             {/* <span className="text-gray-800 font-semibold text-lg text-center">Hello, <span className="text-blue-600">{username}</span></span> */}
