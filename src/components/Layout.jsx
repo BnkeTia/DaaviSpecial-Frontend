@@ -6,15 +6,9 @@ import Spinner from './Spinner.js';
 import { useSelector } from 'react-redux';
 
 const Layout = ({ children, title = 'Daavi Special', content, type, name, description }) => {
-    const myDaaviState = useSelector((state) => {
-        console.log('Redux state:', state); 
-        return state.myDaavi || {};
-    });
-    const { loading } = myDaaviState;
-    useEffect(() => {
-       
-
-      }, [loading]);
+   
+    
+    const { loading } = useSelector(store => store.mydaavi);
 
       console.log('Loading state:', loading);  // Debugging
 

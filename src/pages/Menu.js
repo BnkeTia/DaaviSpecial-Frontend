@@ -3,7 +3,7 @@
 import React, { useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { getCategories, getMenus, createOrder, addItemToOrder } from '../features/daavi/myDaaviSlice';
+import { getCategories, getMenus, createOrder, addItemToOrder, getOrders } from '../features/daavi/myDaaviSlice';
 import Layout from '../components/Layout';
 import continental from "../assets/images/continental.webp";
 import friendRice from "../assets/images/friendRice.jpg";
@@ -99,7 +99,8 @@ const Menu = () => {
             // dispatch(addItemToOrder({ orderId: order.id, payload: itemPayload }));
             dispatch(createOrder(itemPayload));
         }
-        navigate('/my-order')
+        dispatch(getOrders());
+        navigate('/my-order');
     };
     
 

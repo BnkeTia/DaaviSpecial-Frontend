@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { MenuIcon, XIcon } from '@heroicons/react/outline';
 import { useDispatch, useSelector } from 'react-redux';
-import { logoutUser, checkAuth } from '../features/redux-users/myUserSlice';
+import { logoutUser, checkAuth, userInfo } from '../features/redux-users/myUserSlice';
 import Cookies from "js-cookie";
 
 const Header = () => {
@@ -12,12 +12,13 @@ const Header = () => {
   const navigate = useNavigate();
   const { user } = useSelector((state) => state.myuser);
 
-  const isAuthenticated = Cookies.get("isAuthenticated")
-  const username = Cookies.get("username")
-
+  const isAuthenticated = Cookies.get("isAuthenticated");
+  const username = Cookies.get("username");
+  const userName = Cookies.get("userInfo");
 
   useEffect(() => {
     dispatch(checkAuth());
+    dispatch(userInfo(username));
   }, [dispatch]);
 
   const handleLogout = () => {
@@ -41,8 +42,8 @@ const Header = () => {
           <NavLink to="/my-order" className="px-4 py-2 text-white bg-red-600 rounded hover:bg-red-700" style={({ isActive }) => ({ color: isActive ? "#FFFFFF" : "#FFFFFF" })}>Order Now</NavLink>
           {isAuthenticated ? (
             <div className="flex items-center space-x-4">
-              {/* <span className="text-gray-800 font-semibold text-lg">Hello, <span className="text-blue-600">{user?.username}</span></span> */}
               <button onClick={handleLogout} className="px-4 py-2 text-white bg-blue-600 rounded hover:bg-blue-700">Logout</button>
+              <span className="text-gray-800  text-lg ml-4  font-bold text-transparent  bg-gradient-to-r from-red-500 to-yellow-500 to-green-500 to-blue-500 to-purple-500 bg-clip-text ">@<span className=" italic">{userName}</span></span>
             </div>
           ) : (
             <div className="flex items-center space-x-4">
@@ -56,15 +57,19 @@ const Header = () => {
         </div>
       </div>
       <div className={`md:hidden ${nav ? 'block' : 'hidden'} max-md:mb-7 max-md:mr-[15px]`}>
+        <div className='flex justify-between'>
         <NavLink to="/" className="block px-4 py-2 text-gray-800 hover:text-red-600" style={({ isActive }) => ({ color: isActive ? "#FF5733" : "" })}>Home</NavLink>
+          {isAuthenticated ?  <span className="text-gray-800  text-lg ml-4  font-bold text-transparent  bg-gradient-to-r from-red-500 to-yellow-500 to-green-500 to-blue-500 to-purple-500 bg-clip-text ">@<span className=" italic">{userName}</span></span> : ""
+}        </div>
+        
         <NavLink to="/menu" className="block px-4 py-2 text-gray-800 hover:text-red-600" style={({ isActive }) => ({ color: isActive ? "#FF5733" : "" })}>Menu</NavLink>
         <NavLink to="/about" className="block px-4 py-2 text-gray-800 hover:text-red-600" style={({ isActive }) => ({ color: isActive ? "#FF5733" : "" })}>About</NavLink>
         <NavLink to="/contact" className="block px-4 py-2 text-gray-800 hover:text-red-600" style={({ isActive }) => ({ color: isActive ? "#FF5733" : "" })}>Contact</NavLink>
-        <NavLink to="/my-order" className="block px-4 py-2 text-white bg-red-600 rounded hover:bg-red-700" style={({ isActive }) => ({ color: isActive ? "#FFFFFF" : "#FFFFFF" })}>Order Now</NavLink>
+        <NavLink to="/my-order" className="block px-4 py-2 text-white bg-orange-500 rounded hover:bg-red-700 mb-3" style={({ isActive }) => ({ color: isActive ? "#FFFFFF" : "#FFFFFF" })}>Order Now</NavLink>
         {isAuthenticated ? (
           <div className="flex flex-col space-y-2">
-            {/* <span className="text-gray-800 font-semibold text-lg text-center">Hello, <span className="text-blue-600">{username}</span></span> */}
             <button onClick={handleLogout} className="block px-4 py-2 text-white bg-blue-600 rounded hover:bg-blue-700">Logout</button>
+            {/* <span className="text-gray-800  text-lg ml-4  font-bold text-transparent  bg-gradient-to-r from-red-500 to-yellow-500 to-green-500 to-blue-500 to-purple-500 bg-clip-text ">@<span className=" italic">{userName}</span></span> */}
           </div>
         ) : (
           <div className="flex flex-col space-y-2">

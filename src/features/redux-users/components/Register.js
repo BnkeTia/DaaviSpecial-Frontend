@@ -18,7 +18,7 @@ const Register = () => {
   });
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { loading, error, status } = useSelector((state) => state.myuser);
+  const { loading, error, status, isAuthenticated } = useSelector((state) => state.myuser);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -27,13 +27,15 @@ const Register = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(registerUser(formData));
+      navigate('/login');
+    
   };
 
   useEffect(() => {
-    if (status === "succeeded") {
+    if (status === "succeeded" || isAuthenticated === "true") {
       navigate('/login');
     }
-  }, [status, navigate]);
+  }, [status,isAuthenticated, navigate]);
 
   return (
     <Layout title="Register Page">

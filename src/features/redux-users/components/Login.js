@@ -1,7 +1,7 @@
 // src/features/redux-users/components/Login.jsx
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { loginUser } from '../myUserSlice';
+import { loginUser, userInfo } from '../myUserSlice';
 import { Link, useNavigate } from 'react-router-dom';
 import Layout from '../../../components/Layout';
 import italian from "../../../assets/images/italian.jpg";
@@ -26,6 +26,7 @@ const Login = () => {
         navigate('/');
       }
     });
+    dispatch(userInfo())
   };
 
   return (
@@ -63,7 +64,7 @@ const Login = () => {
             </div>
             <div className="flex justify-center">
               <button type="submit" className="px-8 py-3 font-bold text-white bg-blue-500 rounded hover:bg-blue-600">
-                {loading ? 'Logging in...' : 'Login'}
+                {loading ? 'Login' : 'Logging in...'}
               </button>
             </div>
           </form>

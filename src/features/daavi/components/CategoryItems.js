@@ -2,7 +2,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import { getCategories, getCategoryItems, createOrder, addItemToOrder } from '../myDaaviSlice';
+import { getCategories, getCategoryItems, createOrder, addItemToOrder, getOrders, updateLoading } from '../myDaaviSlice';
 import Layout from '../../../components/Layout';
 import continental from "../../../assets/images/continental.webp";
 import fufu from "../../../assets/images/fufu.jpg";
@@ -12,12 +12,13 @@ import breakfast from "../../../assets/images/breakfast.jpg";
 import caribbean from "../../../assets/images/caribbean.webp";
 import Cookies from "js-cookie";
 import { useNavigate } from 'react-router-dom';
+import Spinner from '../../../components/Spinner';
 
 const CategoryItems = () => {
     const { slug } = useParams();
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    const { categories, categoryItems, status, orders } = useSelector((store) => store.mydaavi);
+    const { categories, categoryItems, status, orders, loading } = useSelector((store) => store.mydaavi);
 
     const images = {
         continental,
@@ -31,14 +32,22 @@ const CategoryItems = () => {
     useEffect(() => {
         if (slug) {
             dispatch(getCategories());
+            dispatch(updateLoading(false))
             if (categories?.length > 0) {
                 const category = categories.find(item => item.name.toLowerCase() === slug.toLowerCase());
                 if (category) {
                     dispatch(getCategoryItems(category.id));
+                    dispatch(updateLoading(false))
                 }
             }
         }
-    }, [dispatch, slug, categories]);
+    }, [slug, categories, dispatch]);
+
+    useEffect(() => {
+        dispatch(getCategories());
+        dispatch(updateLoading(false))
+    }, [dispatch]);
+    
 
     const handleAddToCart = async (item) => {
         const customer = Cookies.get("username");
@@ -72,14 +81,15 @@ const CategoryItems = () => {
             };
             dispatch(addItemToOrder({ orderId: order.id, payload: itemPayload }));
         }
+        dispatch(getOrders());
         navigate('/my-order');
     };
-
+   
     const currentDate = new Date().toLocaleDateString();
 
     return (
         <Layout>
-            <div className="container px-4 py-12 mx-auto">
+           <div className="container px-4 py-12 mx-auto">
                 {/* Hero Section */}
                 <section className="mb-12">
                     <div className="relative h-64 bg-center bg-cover" style={{ backgroundImage: `url(${images[slug.toLowerCase()]})` }}>

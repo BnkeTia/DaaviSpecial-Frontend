@@ -38,6 +38,7 @@ const initialState = {
 };
 
 
+
 const handleAsyncError = (state, action) => {
     state.loading = false;
     state.error = action.error.message;
@@ -67,6 +68,7 @@ export const getCategories = createAsyncThunk(
       let response = await axios.get(`${baseURL}categories/`);
       
       // if (response.status === 200) {
+      console.log("get categories", response.data)
       return response.data;
       // }
     } catch (error) {
@@ -83,6 +85,7 @@ export const getCategoryItems = createAsyncThunk(
       let response = await axios.get(`${baseURL}categories/${args}/menu-items/`);
 
       // if (response.status === 200) {
+        console.log("get categoriesItems", response.data)
       return response.data;
       // }
     } catch (error) {
@@ -135,6 +138,21 @@ export const getOrders = createAsyncThunk(
   "mydaavi/getOrders",
   async (payload, { rejectWithValue }) => {
     try {
+      console.log('order by user', payload)
+      const userId = Cookies.get("username")
+      console.log("checking user id", userId)
+      let response = await axiosDannyInstance.get(`orders/by-user/${userId}/`,);
+      return response.data;
+    } catch (error) {
+      console.log("Error getting order", error);
+      return rejectWithValue(error.response?.data);
+    }
+  }
+);
+export const getOrder = createAsyncThunk(
+  "mydaavi/getOrder",
+  async (payload, { rejectWithValue }) => {
+    try {
       let response = await axiosDannyInstance.get(`orders/`);
       return response.data;
     } catch (error) {
@@ -174,7 +192,9 @@ export const myDaaviSlice = createSlice({
   name: "mydaavi",
   initialState,
   reducers: {
-    
+    updateLoading: (state, action) => {
+      state.loading = action.payload;
+    },
     },
     
 
@@ -194,6 +214,7 @@ export const myDaaviSlice = createSlice({
     })
     .addCase(getCategories.fulfilled, (state, action) => {
         state.loading = false;
+        console.log("get categories loading", state.loading)
         state.categories = action.payload;
         // console.log('categories', state.categories)
     })
@@ -203,6 +224,7 @@ export const myDaaviSlice = createSlice({
     })
     .addCase(getCategoryItems.fulfilled, (state, action) => {
         state.loading = false;
+        console.log("get categoriesItems loading", state.loading)
         state.categoryItems = action.payload;
         // console.log('categoryItems')
     })
@@ -265,7 +287,7 @@ export const myDaaviSlice = createSlice({
   devTools: process.env.NODE_ENV !== "production",
 });
 
-export const { } =
+export const { updateLoading } =
   myDaaviSlice.actions;
 
 export default myDaaviSlice.reducer;

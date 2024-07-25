@@ -22,7 +22,9 @@ const initialState = {
     email: "",
     first_name: "",
   },
-  customer: userFromStorage
+  customer: userFromStorage,
+  userInfo: "",
+  loading: "false"
   
 };
 
@@ -33,7 +35,9 @@ export const registerUser = createAsyncThunk(
   "myuser/registerUser",
   async (args, { rejectWithValue }) => {
     try {
+      console.log('register responb args ', args);
       const response = await axios.post(`${baseURL}customers/`, { user: args });
+      console.log('register response ', response);
       return response.data;
     } catch (error) {
       return rejectWithValue(error.response?.data);
@@ -56,6 +60,20 @@ export const loginUser = createAsyncThunk(
     }
   }
 );
+export const userInfo = createAsyncThunk(
+  'myuser/userInfo',
+  async (credentials, { rejectWithValue }) => {
+    try {
+      console.log('crede in nav', credentials)
+      // const username = Cookies.get("username");
+      const response = await axios.get(`${baseURL}customers/${credentials}/`);
+      return response.data;
+    } catch (error) {
+      return rejectWithValue(error.response?.data);
+    }
+  }
+);
+
 
 export const checkAuth = createAsyncThunk(
   'myuser/checkAuth',
@@ -82,6 +100,7 @@ export const myUserSlice = createSlice({
       Cookies.remove('refresh_token');
       Cookies.remove("isAuthenticated")
       Cookies.remove("username")
+      Cookies.remove("userInfo")
     }
   },
   extraReducers: (builder) => {
@@ -113,6 +132,26 @@ export const myUserSlice = createSlice({
       })
       .addCase(loginUser.rejected, (state, action) => {
         state.status = 'failed';
+        state.error = action.error.message;
+      })
+      .addCase(userInfo.pending, (state) => {
+        state.status = 'loading';
+        state.loading ="true";
+      })
+      .addCase(userInfo.fulfilled, (state, action) => {
+        console.log('payload', action.payload.user.username)
+        state.status = 'succeeded';
+        state.loading = "false";
+        state.userInfo = action.payload.user.username;
+        Cookies.set("userInfo", state.userInfo)
+        state.isAuthenticated = true;
+        console.log('check infor', state.userInfo)
+       
+      
+      })
+      .addCase(userInfo.rejected, (state, action) => {
+        state.status = 'failed';
+        state.loading ="true";
         state.error = action.error.message;
       })
       .addCase(checkAuth.pending, (state) => {
