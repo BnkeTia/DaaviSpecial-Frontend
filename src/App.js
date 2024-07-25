@@ -16,6 +16,7 @@ import Register from './features/redux-users/components/Register.js';
 import Login from './features/redux-users/components/Login.js';
 import MyOrders from './pages/MyOrders.jsx';
 import Payment from './pages/Payment.js';
+import ThankYou from './pages/ThankYou.js';
 
 function App() {
 
@@ -43,6 +44,7 @@ function App() {
                         <Route path="/register" element={<Register/>} />
                         <Route path="/login" element={<Login/>} />
                         <Route path="/payment" element={<Payment/>} />
+                        <Route path="/thank-you" element={<ThankYou/>} />
                     </Routes>
             
         </Router>
