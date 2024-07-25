@@ -34,7 +34,8 @@ const initialState = {
   menus: [],
   menuItems: {},
   orders: [],
-  myOrders:[]
+  myOrders:[],
+  selectedOrderDetails: null,
 };
 
 
@@ -195,6 +196,10 @@ export const myDaaviSlice = createSlice({
     updateLoading: (state, action) => {
       state.loading = action.payload;
     },
+    setSelectedOrderDetails: (state, action) => {
+      state.selectedOrderDetails = action.payload;
+  },
+
     },
     
 
@@ -287,7 +292,7 @@ export const myDaaviSlice = createSlice({
   devTools: process.env.NODE_ENV !== "production",
 });
 
-export const { updateLoading } =
+export const { updateLoading, setSelectedOrderDetails } =
   myDaaviSlice.actions;
 
 export default myDaaviSlice.reducer;

@@ -35,9 +35,9 @@ export const registerUser = createAsyncThunk(
   "myuser/registerUser",
   async (args, { rejectWithValue }) => {
     try {
-      console.log('register responb args ', args);
+      // console.log('register responb args ', args);
       const response = await axios.post(`${baseURL}customers/`, { user: args });
-      console.log('register response ', response);
+      // console.log('register response ', response);
       return response.data;
     } catch (error) {
       return rejectWithValue(error.response?.data);
@@ -51,7 +51,7 @@ export const loginUser = createAsyncThunk(
     try {
       const response = await axios.post(`${baseURL}token/`, credentials);
       const decoded = jwtDecode(response.data.access);
-      console.log('decoded', decoded)
+      // console.log('decoded', decoded)
       Cookies.set('access_token', response.data.access, { expires: 1 });
       Cookies.set('refresh_token', response.data.refresh, { expires: 7 }); 
       return { ...response.data, user: decoded };
@@ -64,7 +64,7 @@ export const userInfo = createAsyncThunk(
   'myuser/userInfo',
   async (credentials, { rejectWithValue }) => {
     try {
-      console.log('crede in nav', credentials)
+      // console.log('crede in nav', credentials)
       // const username = Cookies.get("username");
       const response = await axios.get(`${baseURL}customers/${credentials}/`);
       return response.data;
@@ -139,13 +139,13 @@ export const myUserSlice = createSlice({
         state.loading ="true";
       })
       .addCase(userInfo.fulfilled, (state, action) => {
-        console.log('payload', action.payload.user.username)
+        // console.log('payload', action.payload.user.username)
         state.status = 'succeeded';
         state.loading = "false";
         state.userInfo = action.payload.user.username;
         Cookies.set("userInfo", state.userInfo)
         state.isAuthenticated = true;
-        console.log('check infor', state.userInfo)
+        // console.log('check infor', state.userInfo)
        
       
       })

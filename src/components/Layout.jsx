@@ -10,7 +10,7 @@ const Layout = ({ children, title = 'Daavi Special', content, type, name, descri
     
     const { loading } = useSelector(store => store.mydaavi);
 
-      console.log('Loading state:', loading);  // Debugging
+    //   console.log('Loading state:', loading);  // Debugging
 
     return (
         <>
