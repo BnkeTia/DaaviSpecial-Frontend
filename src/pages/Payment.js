@@ -4,8 +4,7 @@ import Layout from '../components/Layout';
 import chinese from "../assets/images/chinese.jpg";
 import italian from "../assets/images/italian.jpg";
 
-
-const PaymentPage = () => {
+const Payment = () => {
     const location = useLocation();
     const { orderID, total } = location.state || {};
 
@@ -14,69 +13,97 @@ const PaymentPage = () => {
 
     return (
         <Layout>
-            <main className="pt-24 min-h-screen bg-gray-50">
+            <main className="pt-24 min-h-screen bg-gray-100">
                 <div className="container px-4 mx-auto">
-                    <section className="px-2 mb-12 bg-yellow-900 bg-center bg-cover py-12 rounded-lg shadow-lg" style={{ backgroundImage: `url(${italian})` }}>
-                        <div className="text-center">
-                            <h1 className="mb-4 text-3xl font-bold text-white md:text-4xl">Payment</h1>
+                    {/* Hero Section */}
+                    <section className="px-2 mb-12 bg-gradient-to-r from-blue-500 to-purple-600 bg-center bg-cover py-20 rounded-lg shadow-lg" style={{ backgroundImage: `url(${italian})` }}>
+                        <div className="text-center text-white">
+                            <h1 className="text-4xl font-bold md:text-5xl">Payment Details</h1>
+                            <p className="mt-4 text-lg md:text-xl text-red-900 font-bold">Complete your purchase with a secure and easy payment process.</p>
                         </div>
                     </section>
-                    <div className="max-w-md mx-auto bg-white p-6 rounded-lg shadow-lg border border-gray-200">
-                        <h2 className="text-2xl font-bold text-gray-800 mb-6">Order #{orderID}</h2>
-                        <p className="text-lg font-semibold text-gray-800 mb-4">Total Amount: ${formattedTotal}</p>
+
+                    {/* Order Summary Section */}
+                    <section className="bg-white p-8 rounded-lg shadow-lg mb-12 border border-gray-200">
+                        <h2 className="text-3xl font-semibold text-gray-800 mb-6">Order Summary</h2>
+                        <div className="mb-6 flex items-center justify-between border-b border-gray-300 pb-4">
+                            <div>
+                                <h3 className="text-lg font-medium text-gray-700">Order ID</h3>
+                                <p className="text-xl font-bold text-gray-800">#{orderID}</p>
+                            </div>
+                            <div>
+                                <h3 className="text-lg font-medium text-gray-700">Total Amount</h3>
+                                <p className="text-xl font-bold text-green-600">${formattedTotal}</p>
+                            </div>
+                        </div>
+                        <p className="text-gray-600 mb-6">Review your order details before proceeding to payment. Ensure all information is correct to avoid any issues with your transaction.</p>
+                    </section>
+
+                    {/* Payment Form Section */}
+                    <div className="bg-white p-8 rounded-lg shadow-lg border border-gray-200">
+                        <h2 className="text-3xl font-semibold text-gray-800 mb-6">Payment Details</h2>
                         <form>
-                            <div className="mb-4">
-                                <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="cardName">
+                            {/* Cardholder Name */}
+                            <div className="mb-6">
+                                <label className="block text-gray-700 text-sm font-semibold mb-2" htmlFor="cardName">
                                     Cardholder Name
                                 </label>
                                 <input
                                     type="text"
                                     id="cardName"
                                     name="cardName"
-                                    className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                    className="shadow-sm appearance-none border rounded w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500"
                                     placeholder="Name on Card"
                                 />
                             </div>
-                            <div className="mb-4">
-                                <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="cardNumber">
+
+                            {/* Card Number */}
+                            <div className="mb-6">
+                                <label className="block text-gray-700 text-sm font-semibold mb-2" htmlFor="cardNumber">
                                     Card Number
                                 </label>
                                 <input
                                     type="text"
                                     id="cardNumber"
                                     name="cardNumber"
-                                    className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                    className="shadow-sm appearance-none border rounded w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500"
                                     placeholder="Card Number"
                                 />
                             </div>
-                            <div className="mb-4">
-                                <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="expiryDate">
+
+                            {/* Expiry Date */}
+                            <div className="mb-6">
+                                <label className="block text-gray-700 text-sm font-semibold mb-2" htmlFor="expiryDate">
                                     Expiry Date
                                 </label>
                                 <input
                                     type="text"
                                     id="expiryDate"
                                     name="expiryDate"
-                                    className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                    className="shadow-sm appearance-none border rounded w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500"
                                     placeholder="MM/YY"
                                 />
                             </div>
+
+                            {/* CVV */}
                             <div className="mb-6">
-                                <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="cvv">
+                                <label className="block text-gray-700 text-sm font-semibold mb-2" htmlFor="cvv">
                                     CVV
                                 </label>
                                 <input
                                     type="text"
                                     id="cvv"
                                     name="cvv"
-                                    className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                    className="shadow-sm appearance-none border rounded w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500"
                                     placeholder="CVV"
                                 />
                             </div>
-                            <div className="flex items-center justify-between">
+
+                            {/* Submit Button */}
+                            <div className="flex items-center justify-center">
                                 <button
                                     type="submit"
-                                    className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                                    className="bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
                                 >
                                     Pay Now
                                 </button>
@@ -89,114 +116,4 @@ const PaymentPage = () => {
     );
 };
 
-export default PaymentPage;
-
-
-// import React, { useState } from 'react';
-// import axios from 'axios';
-// import Layout from '../components/Layout';
-// import Cookies from 'js-cookie';
-
-// const PaymentPage = () => {
-//     const [orderId, setOrderId] = useState('');
-//     const [amount, setAmount] = useState('');
-//     const [paymentMethod, setPaymentMethod] = useState('Credit Card');
-//     const [status, setStatus] = useState('Pending');
-//     const [error, setError] = useState('');
-//     const [success, setSuccess] = useState('');
-
-//     const handleOrderIdChange = (e) => setOrderId(e.target.value);
-//     const handleAmountChange = (e) => setAmount(e.target.value);
-//     const handlePaymentMethodChange = (e) => setPaymentMethod(e.target.value);
-
-//     const handleSubmit = async (e) => {
-//         e.preventDefault();
-
-//         if (!orderId || !amount || !paymentMethod) {
-//             setError('All fields are required.');
-//             return;
-//         }
-
-//         const payload = {
-//             order_id: orderId,
-//             amount: amount,
-//             payment_method: paymentMethod,
-//             status: status
-//         };
-
-//         try {
-//             const response = await axios.post('https://daavispecial-backend.onrender.com/api/payments/', payload);
-//             setSuccess('Payment successful!');
-//             setError('');
-//         } catch (error) {
-//             setError('Payment failed. Please try again.');
-//             setSuccess('');
-//         }
-//     };
-
-//     return (
-//         <Layout>
-//             <main className="pt-24 min-h-screen bg-gray-50">
-//                 <div className="container px-4 mx-auto">
-//                     <section className="px-2 mb-12 bg-blue-900 bg-center bg-cover py-12 rounded-lg shadow-lg">
-//                         <div className="text-center">
-//                             <h1 className="mb-4 text-3xl font-bold text-white md:text-4xl">Make a Payment</h1>
-//                         </div>
-//                     </section>
-//                     <div className="bg-white p-8 rounded-lg shadow-lg max-w-md mx-auto">
-//                         {error && <p className="mb-4 text-red-600">{error}</p>}
-//                         {success && <p className="mb-4 text-green-600">{success}</p>}
-//                         <form onSubmit={handleSubmit}>
-//                             <div className="mb-4">
-//                                 <label htmlFor="orderId" className="block text-gray-700 font-bold mb-2">Order ID</label>
-//                                 <input
-//                                     type="text"
-//                                     id="orderId"
-//                                     value={orderId}
-//                                     onChange={handleOrderIdChange}
-//                                     className="w-full px-3 py-2 border border-gray-300 rounded-lg"
-//                                     required
-//                                 />
-//                             </div>
-//                             <div className="mb-4">
-//                                 <label htmlFor="amount" className="block text-gray-700 font-bold mb-2">Amount</label>
-//                                 <input
-//                                     type="text"
-//                                     id="amount"
-//                                     value={amount}
-//                                     onChange={handleAmountChange}
-//                                     className="w-full px-3 py-2 border border-gray-300 rounded-lg"
-//                                     required
-//                                 />
-//                             </div>
-//                             <div className="mb-4">
-//                                 <label htmlFor="paymentMethod" className="block text-gray-700 font-bold mb-2">Payment Method</label>
-//                                 <select
-//                                     id="paymentMethod"
-//                                     value={paymentMethod}
-//                                     onChange={handlePaymentMethodChange}
-//                                     className="w-full px-3 py-2 border border-gray-300 rounded-lg"
-//                                     required
-//                                 >
-//                                     <option value="Credit Card">Credit Card</option>
-//                                     <option value="PayPal">PayPal</option>
-//                                     <option value="Bank Transfer">Bank Transfer</option>
-//                                 </select>
-//                             </div>
-//                             <div>
-//                                 <button
-//                                     type="submit"
-//                                     className="w-full bg-blue-600 text-white px-3 py-2 rounded-lg hover:bg-blue-700"
-//                                 >
-//                                     Make Payment
-//                                 </button>
-//                             </div>
-//                         </form>
-//                     </div>
-//                 </div>
-//             </main>
-//         </Layout>
-//     );
-// };
-
-// export default PaymentPage;
+export default Payment;
