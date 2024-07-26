@@ -2,6 +2,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 import Cookies from "js-cookie";
 import {jwtDecode} from "jwt-decode";
+import { toast } from "react-toastify";
 
 const baseURL = "https://daavispecial-backend.onrender.com/api/";
 
@@ -37,9 +38,11 @@ export const registerUser = createAsyncThunk(
     try {
       // console.log('register responb args ', args);
       const response = await axios.post(`${baseURL}customers/`, { user: args });
+      toast.success("User registered successfully!");
       // console.log('register response ', response);
       return response.data;
     } catch (error) {
+      toast.error("User registration failed.");
       return rejectWithValue(error.response?.data);
     }
   }
@@ -54,8 +57,11 @@ export const loginUser = createAsyncThunk(
       // console.log('decoded', decoded)
       Cookies.set('access_token', response.data.access, { expires: 1 });
       Cookies.set('refresh_token', response.data.refresh, { expires: 7 }); 
+      toast.success("Login successful!");
       return { ...response.data, user: decoded };
     } catch (error) {
+    
+
       return rejectWithValue(error.response?.data);
     }
   }

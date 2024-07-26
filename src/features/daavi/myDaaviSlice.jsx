@@ -5,6 +5,7 @@ import axiosInstance from "../../app/utils/dannysaxios";
 import axiosDannyInstance from "../../app/utils/dannysaxios";
 // import axiosAuthInstance from "@/app/utils/Login";
 import Cookies from "js-cookie";
+import { toast } from "react-toastify";
 // const baseURL = process.env.NODE_ENV === 'production' ? "https://med-info-apps.up.railway.app/api/" : 'http://localhost:8000/api/';
 const baseURL =  "https://daavispecial-backend.onrender.com/api/";
 
@@ -101,6 +102,7 @@ export const addOrderItem = createAsyncThunk(
   async (orderItemData, { rejectWithValue }) => {
     try {
       const response = await axios.post(`${baseURL}order-items/`, orderItemData);
+      toast.success("Order item added successfully");
       return response.data;
     } catch (error) {
       return rejectWithValue(error.response?.data);
@@ -113,6 +115,7 @@ export const createOrders = createAsyncThunk(
   async (orderData, { rejectWithValue }) => {
     try {
       const response = await axios.post(`${baseURL}orders/`, orderData);
+      toast.success("Order created successfully");
       return response.data;
     } catch (error) {
       return rejectWithValue(error.response?.data);
@@ -127,7 +130,7 @@ export const createOrder = createAsyncThunk(
     try {
       console.log('payload', payload)
       let response = await axiosDannyInstance.post(`orders/`, payload);
-      console.log('response,', response)
+      toast.success("Order created successfully");
       return response.data;
     } catch (error) {
       console.log("Error creating order", error);
@@ -168,6 +171,7 @@ export const addItemToOrder = createAsyncThunk(
   async ({ orderId, payload }, { rejectWithValue }) => {
     try {
       let response = await axiosDannyInstance.post(`${baseURL}orders/${orderId}/add_items/`, payload);
+      toast.success("Item added to order successfully");
       return response.data;
     } catch (error) {
       console.log("Error adding item to order", error.response);
@@ -181,6 +185,7 @@ export const deleteOrder = createAsyncThunk(
     try {
       console.log('id to be deleted', orderId);
       let response = await axiosDannyInstance.delete(`orders/${orderId}/`);
+      toast.success("Order deleted successfully");
       return orderId; 
     } catch (error) {
       console.log("Error deleting order", error.response);

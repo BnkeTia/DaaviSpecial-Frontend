@@ -124,15 +124,15 @@ const Menu = () => {
                                 {loading === 'false' && <Spinner/>}
                                 {status === 'failed' && <p>Failed to load menu items.</p>}
                                 {menus?.map((item) => (
-                                    <div key={item.id} className="grid  p-4 transition-transform transform bg-gray-100 rounded-lg shadow hover:scale-105">
+                                    <div key={item.id} className="grid p-4 transition-transform transform bg-gray-100 rounded-lg shadow hover:scale-105">
                                         <img src={item.image_url} alt={item.name} className="object-cover w-full h-48 rounded-t-lg" />
-                                        <div className="flex flex-col flex-grow p-4 relative">
+                                        <div className="relative flex flex-col flex-grow p-4">
                                             <h3 className="mb-2 text-xl font-bold">{item.name}</h3>
                                             <p className="text-gray-600">{item.description}</p>
                                             <p className="mb-4 font-bold text-gray-800">${item.price}</p>
                                             <button
                                                 onClick={() => handleAddToCart(item)}
-                                                className="mt-auto px-4 py-2 font-bold text-white bg-yellow-500 rounded hover:bg-yellow-600 "
+                                                className="px-4 py-2 mt-auto font-bold text-white bg-yellow-500 rounded hover:bg-yellow-600 "
                                             >
                                                 Add to Cart
                                             </button>
@@ -270,7 +270,7 @@ export default Menu;
 //                                             <p className="mb-4 font-bold text-gray-800">${item.price}</p>
 //                                             <button
 //                                                 onClick={() => handleAddToCart(item)}
-//                                                 className="mt-auto px-4 py-2 font-bold text-white bg-yellow-500 rounded hover:bg-yellow-600"
+//                                                 className="px-4 py-2 mt-auto font-bold text-white bg-yellow-500 rounded hover:bg-yellow-600"
 //                                             >
 //                                                 Add to Cart
 //                                             </button>
@@ -452,7 +452,7 @@ export default Menu;
 //                                             <h3 className="mb-2 text-xl font-bold">{item.name}</h3>
 //                                             <p className="text-gray-600">{item.description}</p>
 //                                             <p className="font-bold text-gray-800">${item.price}</p>
-//                                             <div className="absolutes bottom-0 pb-3 mt-4">
+//                                             <div className="bottom-0 pb-3 mt-4 absolutes">
 //                                                 <button
 //                                                     onClick={() => handleAddToCart(item)}
 //                                                     className="px-4 py-2 font-bold text-white bg-yellow-500 rounded hover:bg-yellow-600"

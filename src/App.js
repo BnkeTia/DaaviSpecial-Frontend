@@ -17,6 +17,8 @@ import Login from './features/redux-users/components/Login.js';
 import MyOrders from './pages/MyOrders.jsx';
 import Payment from './pages/Payment.js';
 import ThankYou from './pages/ThankYou.js';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
 
@@ -31,23 +33,27 @@ function App() {
 
     // console.log('from homePage ', categories)
     return (
-        <Router>
+        <>
+            <ToastContainer />
+            <Router>
            
-                    <Routes>
-                        <Route path="/" element={<Home />} />
-                        <Route path="/about" element={<About />} />
-                        <Route path="/menu" element={<Menu />} />
-                        <Route path="/order" element={<Order />} />
-                        <Route path="/my-order" element={<MyOrders />} />
-                        <Route path="/contact" element={<Contact />} />
-                        <Route path="/category/:slug" element={<CategoryItems/>} />
-                        <Route path="/register" element={<Register/>} />
-                        <Route path="/login" element={<Login/>} />
-                        <Route path="/payment" element={<Payment/>} />
-                        <Route path="/thank-you" element={<ThankYou/>} />
-                    </Routes>
-            
-        </Router>
+           <Routes>
+               <Route path="/" element={<Home />} />
+               <Route path="/about" element={<About />} />
+               <Route path="/menu" element={<Menu />} />
+               <Route path="/order" element={<Order />} />
+               <Route path="/my-order" element={<MyOrders />} />
+               <Route path="/contact" element={<Contact />} />
+               <Route path="/category/:slug" element={<CategoryItems/>} />
+               <Route path="/register" element={<Register/>} />
+               <Route path="/login" element={<Login/>} />
+               <Route path="/payment" element={<Payment/>} />
+               <Route path="/thank-you" element={<ThankYou/>} />
+           </Routes>
+   
+</Router>
+        </>
+       
     );
 }
 
