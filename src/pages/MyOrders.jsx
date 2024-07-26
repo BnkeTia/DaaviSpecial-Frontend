@@ -75,7 +75,7 @@ const MyOrders = () => {
 
     return (
         <Layout>
-            <main className="pt-24 min-h-screen bg-gray-50">
+            <main className="pt-24 min-h-screen bg-gray-50 max-w-[100%] overflow-scroll">
                 <div className="container px-4 mx-auto">
                     <section className="px-2 mb-12 bg-yellow-900 bg-center bg-cover py-12 rounded-lg shadow-lg" style={{ backgroundImage: `url(${chinese})` }}>
                         <div className="text-center">
@@ -123,7 +123,7 @@ const MyOrders = () => {
                             </div>
                         ))}
                     </div>
-                    <div className="mt-12 p-6 bg-white rounded-lg shadow-lg border border-gray-200 max-w-full max-sm:hidden">
+                    <div className="mt-12 p-6 bg-white rounded-lg shadow-lg border border-gray-200 max-w-full max-sm:hiddens ">
                         <h2 className="mb-4 text-2xl font-bold text-gray-800">Summary</h2>
                         <div className="overflow-x-auto">
                             <table className="min-w-full divide-y divide-gray-200">

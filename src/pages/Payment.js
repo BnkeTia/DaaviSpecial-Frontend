@@ -2,9 +2,8 @@ import React, { useEffect, useState } from 'react';
 import Cookies from 'js-cookie';
 import Layout from '../components/Layout';
 import chinese from '../assets/images/chinese.jpg';
-import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
 import axiosDannyInstance from '../app/utils/dannysaxios';
+import { useNavigate } from 'react-router-dom';
 
 const Payment = () => {
     const [orderDetails, setOrderDetails] = useState(null);
@@ -54,7 +53,7 @@ const Payment = () => {
     if (!orderDetails) {
         return (
             <Layout>
-                <main className="pt-24 min-h-screen bg-gray-50">
+                <main className="pt-24 min-h-screen bg-gray-50 max-w-[100%] overflow-scroll">
                     <div className="container px-4 mx-auto">
                         <section className="px-2 mb-12 bg-yellow-900 bg-center bg-cover py-12 rounded-lg shadow-lg" style={{ backgroundImage: `url(${chinese})` }}>
                             <div className="text-center">
@@ -70,7 +69,7 @@ const Payment = () => {
 
     return (
         <Layout>
-            <main className="pt-24 min-h-screen bg-gray-50">
+            <main className="pt-24 min-h-screen bg-gray-50 max-w-[100%] overflow-scroll">
                 <div className="container px-4 mx-auto">
                     <section className="px-2 mb-12 bg-yellow-900 bg-center bg-cover py-12 rounded-lg shadow-lg" style={{ backgroundImage: `url(${chinese})` }}>
                         <div className="text-center">
@@ -83,24 +82,24 @@ const Payment = () => {
                             <table className="min-w-full divide-y divide-gray-200">
                                 <thead className="bg-gray-50">
                                     <tr>
-                                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Item</th>
-                                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Quantity</th>
-                                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Price</th>
+                                        <th className="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Item</th>
+                                        <th className="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Quantity</th>
+                                        <th className="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Price</th>
                                     </tr>
                                 </thead>
                                 <tbody className="bg-white divide-y divide-gray-200">
                                     {orderDetails.summary.map((item, index) => (
                                         <tr key={index}>
-                                            <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{item.name}</td>
-                                            <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{item.quantity}</td>
-                                            <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">${item.price.toFixed(2)}</td>
+                                            <td className="px-4 py-2 whitespace-nowrap text-sm font-medium text-gray-900">{item.name}</td>
+                                            <td className="px-4 py-2 whitespace-nowrap text-sm text-gray-500">{item.quantity}</td>
+                                            <td className="px-4 py-2 whitespace-nowrap text-sm text-gray-500">${item.price.toFixed(2)}</td>
                                         </tr>
                                     ))}
                                 </tbody>
                                 <tfoot>
                                     <tr>
-                                        <td colSpan="2" className="px-6 py-3 text-right text-lg font-semibold text-gray-800">Overall Total:</td>
-                                        <td className="px-6 py-3 text-lg font-semibold text-gray-800">${orderDetails.overallTotal.toFixed(2)}</td>
+                                        <td colSpan="2" className="px-4 py-2 text-right text-lg font-semibold text-gray-800">Overall Total:</td>
+                                        <td className="px-4 py-2 text-lg font-semibold text-gray-800">${orderDetails.overallTotal.toFixed(2)}</td>
                                     </tr>
                                 </tfoot>
                             </table>
@@ -109,7 +108,7 @@ const Payment = () => {
                     <form onSubmit={handlePayment} className="mt-8 bg-white p-6 rounded-lg shadow-lg border border-gray-200">
                         <h2 className="text-2xl font-bold text-gray-800 mb-4">Payment Details</h2>
                         {error && <p className="text-red-600 mb-4">{error}</p>}
-                        <div className="grid gap-6 grid-cols-1 md:grid-cols-2">
+                        <div className="grid gap-6 grid-cols-1 sm:grid-cols-2">
                             <div className="relative">
                                 <label htmlFor="cardNumber" className="block text-sm font-medium text-gray-700">Card Number</label>
                                 <input
@@ -147,7 +146,7 @@ const Payment = () => {
                         <div className="mt-6 flex justify-end">
                             <button
                                 type="submit"
-                                className="px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition duration-300"
+                                className="w-full sm:w-auto px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition duration-300"
                                 disabled={loading}
                             >
                                 {loading ? 'Processing...' : 'Pay Now'}
